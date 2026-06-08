@@ -253,9 +253,25 @@
           font-size: 1.6rem;
         }
       }
+
+      {% comment %}Rack And Ride — police de titres Fraunces (self-hosted) + override famille{% endcomment %}
+      {% render 'css-fraunces' %}
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'rackandride.css' | asset_url | stylesheet_tag }}
+    {% comment %}Rack And Ride — couleurs d'accent pilotables depuis l'éditeur (chargées après pour gagner la cascade){% endcomment %}
+    {% style %}
+      :root {
+        --rar-oak: {{ settings.rar_accent_oak | default: '#B07C4C' }};
+        --rar-oak-strong: {{ settings.rar_accent_oak_dark | default: '#A8703F' }};
+        --rar-oak-light: {{ settings.rar_accent_oak_light | default: '#C89B6A' }};
+        --rar-sage: {{ settings.rar_accent_sage | default: '#7E8E72' }};
+        --rar-terracotta: {{ settings.rar_accent_terracotta | default: '#C16E4F' }};
+        --rar-accent: {{ settings.rar_accent_oak | default: '#B07C4C' }};
+        --rar-accent-on-dark: {{ settings.rar_accent_oak_light | default: '#C89B6A' }};
+      }
+    {% endstyle %}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -276,6 +292,10 @@
       <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
       {% comment %}theme-check-enable AssetPreload{% endcomment %}
     {%- endunless -%}
+    {% comment %}Rack And Ride — préload de la graisse de titre principale (Fraunces 600){% endcomment %}
+    {% comment %}theme-check-disable AssetPreload{% endcomment %}
+    <link rel="preload" as="font" href="{{ 'fraunces-600.woff2' | asset_url }}" type="font/woff2" crossorigin>
+    {% comment %}theme-check-enable AssetPreload{% endcomment %}
 
     {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
       {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}

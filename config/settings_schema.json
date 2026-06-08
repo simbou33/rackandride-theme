@@ -8,6 +8,70 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
+    "name": "Rack And Ride",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Couleurs d'accent de marque"
+      },
+      {
+        "type": "paragraph",
+        "content": "Utilisées pour les liens, le focus, les icônes et les éléments de confiance, en complément des schémas de couleurs."
+      },
+      {
+        "type": "color",
+        "id": "rar_accent_oak",
+        "label": "Chêne (accent principal)",
+        "default": "#B07C4C"
+      },
+      {
+        "type": "color",
+        "id": "rar_accent_oak_dark",
+        "label": "Chêne profond (boutons / survol)",
+        "default": "#A8703F"
+      },
+      {
+        "type": "color",
+        "id": "rar_accent_oak_light",
+        "label": "Chêne clair (accents sur fond sombre)",
+        "default": "#C89B6A"
+      },
+      {
+        "type": "color",
+        "id": "rar_accent_sage",
+        "label": "Vert sauge (éco)",
+        "default": "#7E8E72"
+      },
+      {
+        "type": "color",
+        "id": "rar_accent_terracotta",
+        "label": "Terracotta (promo / soldes)",
+        "default": "#C16E4F"
+      },
+      {
+        "type": "header",
+        "content": "Conversion"
+      },
+      {
+        "type": "range",
+        "id": "rar_free_shipping_threshold",
+        "min": 0,
+        "max": 300,
+        "step": 5,
+        "unit": "€",
+        "label": "Seuil livraison offerte / -10%",
+        "info": "Montant à atteindre pour la barre de progression du panier. 0 = masquée.",
+        "default": 100
+      },
+      {
+        "type": "checkbox",
+        "id": "rar_enable_sticky_atc",
+        "label": "Barre « Ajouter au panier » fixe sur mobile (page produit)",
+        "default": true
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {

@@ -1,0 +1,197 @@
+/* ==========================================================================
+   RACK AND RIDE — Couche de design (par-dessus Dawn)
+   Chargée après base.css. Ne remplace pas Dawn : l'affine.
+   Palette « Chêne & Océan » · Typo Fraunces + Work Sans · Arrondis doux.
+   ========================================================================== */
+
+:root {
+  /* --- Palette de marque (valeurs fixes, dispo partout quel que soit le scheme) --- */
+  --rar-cream: #faf6ef;      /* fond lin */
+  --rar-sand: #efe7d9;       /* surface sable */
+  --rar-oak: #b07c4c;        /* chêne miel — accent (liens/focus/icônes) */
+  --rar-oak-strong: #a8703f; /* chêne profond — fonds de boutons (contraste++) */
+  --rar-oak-light: #c89b6a;  /* chêne clair — accents sur fond sombre */
+  --rar-ink: #1f2b33;        /* encre bleu nuit — texte/titres */
+  --rar-sage: #7e8e72;       /* vert sauge — éco */
+  --rar-sage-deep: #5e6e52;
+  --rar-terracotta: #c16e4f; /* terracotta — promo/soldes */
+
+  /* Accent générique consommé par les composants (override possible par section) */
+  --rar-accent: var(--rar-oak);
+  --rar-accent-on-dark: var(--rar-oak-light);
+
+  /* --- Rythme & transitions --- */
+  --rar-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --rar-transition: 240ms var(--rar-ease);
+  --rar-radius-sm: 6px;
+  --rar-radius: 12px;
+  --rar-radius-lg: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   TYPOGRAPHIE — hiérarchie raffinée
+   -------------------------------------------------------------------------- */
+body {
+  /* Dawn pose 0.06rem : trop espacé pour Work Sans. On resserre pour la lisibilité. */
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h0, .h1, .h2, .h3, .h4, .h5,
+.title,
+.product__title {
+  font-family: var(--font-heading-family);
+  letter-spacing: -0.01em; /* Fraunces respire mieux légèrement resserrée */
+  line-height: 1.12;
+}
+
+/* Échelle de titres plus affirmée (clamp = responsive fluide) */
+.h0 { font-size: clamp(3.4rem, 6vw, 6.4rem); line-height: 1.04; }
+h1, .h1 { font-size: clamp(2.8rem, 4.2vw, 4.4rem); }
+h2, .h2 { font-size: clamp(2.4rem, 3vw, 3.4rem); }
+h3, .h3 { font-size: clamp(1.9rem, 2.2vw, 2.4rem); }
+
+/* Accent éditorial : <em> dans les titres en Fraunces italique */
+h1 em, h2 em, h3 em, .h0 em, .h1 em, .h2 em {
+  font-style: italic;
+  font-weight: 400;
+  color: rgb(var(--color-foreground));
+}
+
+/* --------------------------------------------------------------------------
+   LIENS — chêne en décoration (accessible : le texte reste en couleur lisible)
+   -------------------------------------------------------------------------- */
+a.link,
+.rte a:not(.button) {
+  text-decoration-color: var(--rar-accent);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.08em;
+  transition: text-decoration-color var(--rar-transition), color var(--rar-transition);
+}
+.rte a:not(.button):hover {
+  color: var(--rar-oak-strong);
+}
+
+/* Focus visible cohérent et chaleureux */
+:where(a, button, summary, input, select, textarea, .button, [tabindex]):focus-visible {
+  outline: 2px solid var(--rar-accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   BOUTONS — micro-relèvement au survol
+   -------------------------------------------------------------------------- */
+.button,
+.shopify-payment-button__button--unbranded,
+.shopify-challenge__button {
+  transition: transform var(--rar-transition), box-shadow var(--rar-transition),
+    background-color var(--rar-transition), color var(--rar-transition);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+@media (hover: hover) {
+  .button:not([disabled]):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -8px rgba(var(--color-shadow, 31, 43, 51), 0.45);
+  }
+  .button:not([disabled]):active {
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   CARTES PRODUIT — zoom image discret au survol
+   -------------------------------------------------------------------------- */
+.card__media,
+.card .media {
+  overflow: hidden;
+}
+.card__media img,
+.card .media img {
+  transition: transform 500ms var(--rar-ease);
+  will-change: transform;
+}
+@media (hover: hover) {
+  .card-wrapper:hover .card__media img,
+  .card-wrapper:hover .card .media img,
+  .card:hover .media img {
+    transform: scale(1.045);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   MICRO-ANIMATION — fade-up au scroll (s'appuie sur le reveal de Dawn)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-trigger.animate--slide-in {
+    --animation-duration: 0.7s;
+  }
+  .rar-fade-up {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s var(--rar-ease), transform 0.7s var(--rar-ease);
+  }
+  .rar-fade-up.rar-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   HELPERS RÉUTILISABLES (phases suivantes : badges confiance, avis étoiles)
+   -------------------------------------------------------------------------- */
+
+/* Badge de confiance (fait main / chêne / éco / recyclable) */
+.rar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(var(--color-foreground), 0.04);
+  border: 1px solid rgba(var(--color-foreground), 0.1);
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.rar-badge svg { width: 1.8rem; height: 1.8rem; flex-shrink: 0; }
+.rar-badge--sage { color: var(--rar-sage-deep); }
+
+/* Étoiles d'avis */
+.rar-stars {
+  display: inline-flex;
+  gap: 0.2rem;
+  color: var(--rar-oak);
+  line-height: 1;
+}
+.rar-stars svg { width: 1.6rem; height: 1.6rem; }
+.rar-stars--muted { color: rgba(var(--color-foreground), 0.25); }
+
+/* Barre de progression (livraison offerte / -10% dès X€) */
+.rar-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(var(--color-foreground), 0.1);
+  overflow: hidden;
+}
+.rar-progress__bar {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--rar-oak);
+  transition: width 500ms var(--rar-ease);
+}
+
+/* Surtitre / eyebrow au-dessus des titres de section */
+.rar-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body-family);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rar-oak-strong);
+  margin-bottom: 1.2rem;
+}
