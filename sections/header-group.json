@@ -8,9 +8,8 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
-            "text_alignment": "center",
-            "color_scheme": "scheme-1",
+            "use_translation": true,
+            "text": "Enjoy 10% off on orders over €100 — use code SPRING10",
             "link": ""
           }
         }

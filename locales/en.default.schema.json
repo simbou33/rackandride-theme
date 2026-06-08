@@ -471,6 +471,10 @@
         "announcement": {
           "name": "Announcement",
           "settings": {
+            "use_translation": {
+              "label": "Multilingual promo text",
+              "info": "Show the theme's translated promo (EN/FR/DE/ES) instead of the text below. Edit it under Content → Edit default theme content → “promo_html”."
+            },
             "text": {
               "label": "Text",
               "default": "Welcome to our store"

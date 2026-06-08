@@ -277,6 +277,8 @@
     },
     "cart": {
       "title": "Dein Warenkorb",
+      "free_shipping_progress_html": "Noch {{ amount }} bis zum <strong>kostenlosen Versand</strong>",
+      "free_shipping_unlocked_html": "<strong>Kostenloser Versand</strong> freigeschaltet — viel Spaß!",
       "caption": "Artikel im Warenkorb",
       "remove_title": "{{ title }} entfernen",
       "note": "Spezielle Bestellanweisungen",
@@ -347,7 +349,8 @@
       "next_announcement": "Nächste Ankündigung",
       "carousel": "Karussell",
       "announcement": "Ankündigung",
-      "announcement_bar": "Ankündigungsleiste"
+      "announcement_bar": "Ankündigungsleiste",
+      "promo_html": "10 % Rabatt ab 100 € Bestellwert — Code <span class=\"rar-promo-code\">SPRING10</span>"
     },
     "quick_order_list": {
       "product_total": "Produktzwischensumme",

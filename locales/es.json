@@ -287,6 +287,8 @@
     },
     "cart": {
       "title": "Tu carrito",
+      "free_shipping_progress_html": "Te faltan {{ amount }} para el <strong>envío gratis</strong>",
+      "free_shipping_unlocked_html": "<strong>Envío gratis</strong> desbloqueado — ¡a rodar!",
       "caption": "Artículos en el carrito",
       "remove_title": "Eliminar {{ title }}",
       "note": "Instrucciones especiales del pedido",
@@ -357,7 +359,8 @@
       "next_announcement": "Anuncio siguiente",
       "carousel": "Carrusel",
       "announcement": "Anuncio",
-      "announcement_bar": "Barra de anuncios"
+      "announcement_bar": "Barra de anuncios",
+      "promo_html": "10 % de descuento a partir de 100 € — código <span class=\"rar-promo-code\">SPRING10</span>"
     },
     "quick_order_list": {
       "product_total": "Subtotal de productos",

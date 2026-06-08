@@ -195,3 +195,214 @@ a.link,
   color: var(--rar-oak-strong);
   margin-bottom: 1.2rem;
 }
+
+/* ==========================================================================
+   PHASE 1 — CHROME GLOBAL (annonce · header · footer · cart drawer)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BARRE D'ANNONCE — message promo + code mis en avant (terracotta)
+   -------------------------------------------------------------------------- */
+.announcement-bar__message {
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  text-transform: none;
+}
+/* Code promo : pastille terracotta lisible sur fond clair comme foncé */
+.rar-promo-code {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.1em 0.6em;
+  border-radius: var(--rar-radius-sm);
+  background: var(--rar-terracotta);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+/* Survol du lien d'annonce : flèche déjà gérée par Dawn (animate-arrow) */
+
+/* --------------------------------------------------------------------------
+   HEADER — sticky « on scroll up » plus aérien, séparateurs doux
+   -------------------------------------------------------------------------- */
+.header-wrapper {
+  transition: box-shadow var(--rar-transition), background-color var(--rar-transition);
+}
+/* Ombre discrète seulement une fois la page défilée (header sticky révélé) */
+.shopify-section-header-sticky.scrolled-past-header .header-wrapper,
+.scrolled-past-header .header-wrapper {
+  box-shadow: 0 6px 24px -16px rgba(31, 43, 51, 0.5);
+}
+/* Séparateur bas du header : trait sable plutôt que gris Dawn */
+.header-wrapper--border-bottom {
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
+}
+
+/* Logo de marque en SVG inline (snippet rar-logo) — hérite de l'encre */
+.rar-logo {
+  display: inline-block;
+  line-height: 0;
+  color: rgb(var(--color-foreground));
+  transition: color var(--rar-transition);
+}
+.rar-logo svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (hover: hover) {
+  .header__heading-link:hover .rar-logo {
+    color: var(--rar-oak-strong);
+  }
+}
+
+/* Liens de navigation : souligné chêne animé */
+.header__menu-item span,
+.header__active-menu-item {
+  position: relative;
+}
+.header__menu-item::after {
+  content: "";
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  bottom: 0.4rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--rar-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--rar-transition);
+}
+@media (hover: hover) {
+  .header__menu-item:hover::after,
+  .header__menu-item[aria-expanded="true"]::after {
+    transform: scaleX(1);
+  }
+}
+.header__active-menu-item {
+  text-underline-offset: 0.4em;
+  text-decoration-color: var(--rar-accent);
+}
+
+/* Icônes du header (recherche, compte, panier) : teinte chêne au survol */
+.header__icon .svg-wrapper,
+.header__icon--cart .svg-wrapper {
+  transition: color var(--rar-transition), transform var(--rar-transition);
+}
+@media (hover: hover) {
+  .header__icon:hover .svg-wrapper {
+    color: var(--rar-oak-strong);
+  }
+}
+/* Pastille de comptage du panier : chêne de marque */
+.cart-count-bubble {
+  background-color: var(--rar-oak-strong);
+}
+.cart-count-bubble span {
+  color: #fff;
+}
+
+/* Méga-menu / dropdown : carte douce */
+.header__submenu.list-menu__submenu,
+.mega-menu__content {
+  border-radius: var(--rar-radius);
+  box-shadow: 0 18px 40px -24px rgba(31, 43, 51, 0.45);
+  border: 1px solid rgba(var(--color-foreground), 0.06);
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER — fond sable, hiérarchie claire, liens chêne
+   -------------------------------------------------------------------------- */
+.footer__content-top {
+  padding-block: 5.2rem;
+}
+.footer-block__heading {
+  font-family: var(--font-body-family);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.footer-block__brand-info .footer-block__heading {
+  font-family: var(--font-heading-family);
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  opacity: 1;
+}
+/* Liens de menu footer : survol chêne + léger décalage */
+.footer-block__details-content .list-menu__item--link,
+.footer__content-bottom .policies .list-menu__item--link {
+  transition: color var(--rar-transition), padding-left var(--rar-transition);
+}
+@media (hover: hover) {
+  .footer-block__details-content .list-menu__item--link:hover {
+    color: var(--rar-oak-strong);
+    padding-left: 0.4rem;
+  }
+}
+/* Newsletter : champ arrondi cohérent */
+.footer-block__newsletter .field__input {
+  border-radius: var(--rar-radius-sm);
+}
+/* Icônes sociales : survol chêne */
+@media (hover: hover) {
+  .footer .list-social__link:hover .svg-wrapper {
+    color: var(--rar-oak-strong);
+  }
+}
+/* Filet de séparation bas de footer plus doux */
+.footer__content-bottom {
+  border-top: 1px solid rgba(var(--color-foreground), 0.1);
+}
+.footer__payment .icon--full-color,
+.footer__payment svg {
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   CART DRAWER — tiroir de marque + barre de livraison offerte
+   -------------------------------------------------------------------------- */
+.cart-drawer .drawer__inner {
+  border-top-left-radius: var(--rar-radius-lg);
+  border-bottom-left-radius: var(--rar-radius-lg);
+}
+.cart-drawer .drawer__header {
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
+}
+.cart-drawer .drawer__heading {
+  font-family: var(--font-heading-family);
+}
+.cart-drawer__overlay {
+  background-color: rgba(31, 43, 51, 0.45);
+}
+
+/* Barre de progression « livraison offerte » (snippet rar-free-shipping-bar) */
+.rar-shipping-bar {
+  padding: 1.4rem 0 1.8rem;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
+}
+.rar-shipping-bar__text {
+  margin: 0 0 0.9rem;
+  font-size: 1.4rem;
+  line-height: 1.35;
+}
+.rar-shipping-bar__text strong {
+  color: var(--rar-oak-strong);
+  font-weight: 700;
+}
+.rar-shipping-bar--done .rar-shipping-bar__text {
+  color: var(--rar-sage-deep);
+}
+.rar-shipping-bar--done .rar-progress__bar {
+  background: var(--rar-sage);
+}
+.rar-shipping-bar__icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  vertical-align: -0.3rem;
+  margin-right: 0.4rem;
+}

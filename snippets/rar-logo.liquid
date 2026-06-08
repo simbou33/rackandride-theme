@@ -1,0 +1,11 @@
+{% comment %}
+  Rack And Ride — logo de marque en SVG inline (depuis /assets/logo-rackandride.svg).
+  Hérite de la couleur du texte (fill="currentColor"), taille pilotée par settings.logo_width.
+  Utilisé dans le header quand aucune image settings.logo n'est uploadée.
+
+  Usage : {% render 'rar-logo' %}
+{% endcomment %}
+{%- assign rar_logo_w = settings.logo_width | default: 90 -%}
+<span class="rar-logo header__heading-logo motion-reduce" style="width: {{ rar_logo_w }}px;">
+  {{- 'logo-rackandride.svg' | inline_asset_content -}}
+</span>

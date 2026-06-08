@@ -272,7 +272,8 @@
       "next_announcement": "Next announcement",
       "carousel": "Carousel",
       "announcement": "Announcement",
-      "announcement_bar": "Announcement bar"
+      "announcement_bar": "Announcement bar",
+      "promo_html": "Enjoy 10% off on orders over €100 — use code <span class=\"rar-promo-code\">SPRING10</span>"
     },
 
     "header": {
@@ -285,6 +286,8 @@
     },
     "cart": {
       "title": "Your cart",
+      "free_shipping_progress_html": "Spend {{ amount }} more to unlock <strong>free shipping</strong>",
+      "free_shipping_unlocked_html": "<strong>Free shipping</strong> unlocked — enjoy the ride!",
       "caption": "Cart items",
       "remove_title": "Remove {{ title }}",
       "estimated_total": "Estimated total",

@@ -287,6 +287,8 @@
     },
     "cart": {
       "title": "Votre panier",
+      "free_shipping_progress_html": "Plus que {{ amount }} pour la <strong>livraison offerte</strong>",
+      "free_shipping_unlocked_html": "<strong>Livraison offerte</strong> débloquée — belle session !",
       "caption": "Articles du panier",
       "remove_title": "Supprimer {{ title }}",
       "note": "Instructions spéciales concernant la commande",
@@ -357,7 +359,8 @@
       "next_announcement": "Annonce suivante",
       "carousel": "Carrousel",
       "announcement": "Annonce",
-      "announcement_bar": "Barre d’annonces"
+      "announcement_bar": "Barre d’annonces",
+      "promo_html": "-10 % dès 100 € d’achat — code <span class=\"rar-promo-code\">SPRING10</span>"
     },
     "quick_order_list": {
       "product_total": "Sous-total des produits",

@@ -445,6 +445,10 @@
         "announcement": {
           "name": "Ankündigung",
           "settings": {
+            "use_translation": {
+              "label": "Mehrsprachiger Aktionstext",
+              "info": "Zeigt die übersetzte Theme-Aktion (EN/FR/DE/ES) statt des Textes unten. Bearbeitbar unter Inhalt → Standard-Theme-Inhalt bearbeiten → „promo_html“."
+            },
             "text": {
               "label": "Text",
               "default": "Willkommen in unserem Shop"

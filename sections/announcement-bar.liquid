@@ -32,7 +32,7 @@
         aria-label="{{ 'sections.header.announcement' | t }}"
         {{ section.blocks.first.shopify_attributes }}
       >
-        {%- if section.blocks.first.settings.text != blank -%}
+        {%- if section.blocks.first.settings.text != blank or section.blocks.first.settings.use_translation -%}
           {%- if section.blocks.first.settings.link != blank -%}
             <a
               href="{{ section.blocks.first.settings.link }}"
@@ -40,7 +40,13 @@
             >
           {%- endif -%}
           <p class="announcement-bar__message h5">
-            <span>{{ section.blocks.first.settings.text | escape }}</span>
+            <span>
+              {%- if section.blocks.first.settings.use_translation -%}
+                {{ 'sections.announcements.promo_html' | t }}
+              {%- else -%}
+                {{ section.blocks.first.settings.text | escape }}
+              {%- endif -%}
+            </span>
             {%- if section.blocks.first.settings.link != blank -%}
               {{- 'icon-arrow.svg' | inline_asset_content -}}
             {%- endif -%}
@@ -92,7 +98,7 @@
                   role="region"
                   aria-label="{{ 'sections.header.announcement' | t }}"
                 >
-                  {%- if block.settings.text != blank -%}
+                  {%- if block.settings.text != blank or block.settings.use_translation -%}
                     {%- if block.settings.link != blank -%}
                       <a
                         href="{{ block.settings.link }}"
@@ -100,7 +106,13 @@
                       >
                     {%- endif -%}
                     <p class="announcement-bar__message h5">
-                      <span>{{ block.settings.text | escape }}</span>
+                      <span>
+                        {%- if block.settings.use_translation -%}
+                          {{ 'sections.announcements.promo_html' | t }}
+                        {%- else -%}
+                          {{ block.settings.text | escape }}
+                        {%- endif -%}
+                      </span>
                       {%- if block.settings.link != blank -%}
                         {{- 'icon-arrow.svg' | inline_asset_content -}}
                       {%- endif -%}
@@ -234,6 +246,13 @@
       "type": "announcement",
       "name": "t:sections.announcement-bar.blocks.announcement.name",
       "settings": [
+        {
+          "type": "checkbox",
+          "id": "use_translation",
+          "default": false,
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.use_translation.label",
+          "info": "t:sections.announcement-bar.blocks.announcement.settings.use_translation.info"
+        },
         {
           "type": "text",
           "id": "text",

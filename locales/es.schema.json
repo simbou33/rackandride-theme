@@ -445,6 +445,10 @@
         "announcement": {
           "name": "Anuncio",
           "settings": {
+            "use_translation": {
+              "label": "Texto promocional multilingüe",
+              "info": "Muestra la promoción traducida del tema (EN/FR/DE/ES) en lugar del texto siguiente. Editable en Contenido → Editar contenido predeterminado del tema → «promo_html»."
+            },
             "text": {
               "label": "Texto",
               "default": "Te damos la bienvenida a nuestra tienda"
