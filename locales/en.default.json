@@ -293,6 +293,12 @@
     }
   },
   "sections": {
+    "rar_trust_badges": {
+      "shipping": "Free shipping over €100",
+      "payment": "Secure payment",
+      "returns": "30-day returns",
+      "handmade": "Handmade in France"
+    },
     "announcements": {
       "previous_announcement": "Previous announcement",
       "next_announcement": "Next announcement",

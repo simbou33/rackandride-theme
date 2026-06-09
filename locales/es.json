@@ -302,6 +302,12 @@
     }
   },
   "sections": {
+    "rar_trust_badges": {
+      "shipping": "Envío gratis desde 100€",
+      "payment": "Pago seguro",
+      "returns": "Devoluciones en 30 días",
+      "handmade": "Hecho a mano en Francia"
+    },
     "header": {
       "announcement": "Anuncio",
       "menu": "Menú",

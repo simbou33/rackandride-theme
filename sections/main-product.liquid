@@ -372,10 +372,13 @@
             -%}
           {%- endif -%}
 
-          {%- comment -%} ── 4. ACCORDÉONS RAR ── {%- endcomment -%}
+          {%- comment -%} ── 4. TRUST BADGES ── {%- endcomment -%}
+          {%- render 'rar-trust-badges', compact: true -%}
+
+          {%- comment -%} ── 5. ACCORDÉONS RAR ── {%- endcomment -%}
           {%- render 'rar-product-accordions', product: product, section: section -%}
 
-          {%- comment -%} ── 5. DESCRIPTION LONGUE ── {%- endcomment -%}
+          {%- comment -%} ── 6. DESCRIPTION LONGUE ── {%- endcomment -%}
           {%- if product.description != blank -%}
             <hr class="rar-product-desc-sep">
             <div class="product__description rte quick-add-hidden">

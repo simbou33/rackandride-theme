@@ -1,0 +1,53 @@
+{%- liquid
+  assign compact = compact | default: false
+-%}
+<div class="rar-trust-badges{% if compact %} rar-trust-badges--compact{% endif %}">
+  <ul class="rar-trust-badges__list">
+
+    <li class="rar-trust-badges__item">
+      <span class="rar-trust-badges__icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13" rx="1"/>
+          <path d="M16 8h4l3 4v4h-7V8z"/>
+          <circle cx="5.5" cy="18.5" r="2.5"/>
+          <circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+      </span>
+      <span class="rar-trust-badges__text">{{ 'sections.rar_trust_badges.shipping' | t }}</span>
+    </li>
+
+    <li class="rar-trust-badges__item">
+      <span class="rar-trust-badges__icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <rect x="9" y="11" width="6" height="5" rx="1"/>
+          <path d="M9.5 11V9a2.5 2.5 0 0 1 5 0v2"/>
+        </svg>
+      </span>
+      <span class="rar-trust-badges__text">{{ 'sections.rar_trust_badges.payment' | t }}</span>
+    </li>
+
+    <li class="rar-trust-badges__item">
+      <span class="rar-trust-badges__icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="1 4 1 10 7 10"/>
+          <path d="M3.51 15a9 9 0 1 0 .49-5"/>
+        </svg>
+      </span>
+      <span class="rar-trust-badges__text">{{ 'sections.rar_trust_badges.returns' | t }}</span>
+    </li>
+
+    <li class="rar-trust-badges__item">
+      <span class="rar-trust-badges__icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 11V6a2 2 0 0 0-4 0"/>
+          <path d="M14 10V4a2 2 0 0 0-4 0v2"/>
+          <path d="M10 10.5V6a2 2 0 0 0-4 0v8"/>
+          <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
+        </svg>
+      </span>
+      <span class="rar-trust-badges__text">{{ 'sections.rar_trust_badges.handmade' | t }}</span>
+    </li>
+
+  </ul>
+</div>

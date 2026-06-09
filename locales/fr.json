@@ -302,6 +302,12 @@
     }
   },
   "sections": {
+    "rar_trust_badges": {
+      "shipping": "Livraison offerte dès 100€",
+      "payment": "Paiement sécurisé",
+      "returns": "Retours sous 30 jours",
+      "handmade": "Fait main dans les Landes"
+    },
     "header": {
       "announcement": "Annonce",
       "menu": "Menu",

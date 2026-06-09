@@ -293,6 +293,12 @@
     }
   },
   "sections": {
+    "rar_trust_badges": {
+      "shipping": "Kostenloser Versand ab 100€",
+      "payment": "Sichere Zahlung",
+      "returns": "30 Tage Rückgabe",
+      "handmade": "Handgefertigt in Frankreich"
+    },
     "header": {
       "announcement": "Ankündigung",
       "menu": "Menü",

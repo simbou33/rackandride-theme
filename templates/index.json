@@ -57,6 +57,14 @@
         "show_text_below": false
       }
     },
+    "rar_trust_badges": {
+      "type": "rar-trust-badges",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
     "rich_text": {
       "type": "rich-text",
       "blocks": {
@@ -224,6 +232,7 @@
   },
   "order": [
     "image_banner",
+    "rar_trust_badges",
     "rich_text",
     "featured_collection",
     "collage",
