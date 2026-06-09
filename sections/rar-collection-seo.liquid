@@ -1,0 +1,175 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign rich_blocks = section.blocks | where: 'type', 'rich_text'
+  assign faq_blocks  = section.blocks | where: 'type', 'faq_item'
+-%}
+
+<div class="rar-coll-seo section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+
+    {%- for block in rich_blocks -%}
+      <div class="rar-coll-seo__text{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {{ block.shopify_attributes }}>
+        {%- if block.settings.heading != blank -%}
+          <h2 class="rar-coll-seo__heading">{{ block.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if block.settings.content != blank -%}
+          <div class="rar-coll-seo__body rte">{{ block.settings.content }}</div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+
+    {%- if faq_blocks.size > 0 -%}
+      <div class="rar-coll-faq{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {%- if section.settings.faq_heading != blank -%}
+          <h2 class="rar-coll-seo__heading rar-coll-faq__heading">
+            {{- section.settings.faq_heading | escape -}}
+          </h2>
+        {%- endif -%}
+        <div class="rar-coll-faq__list">
+          {%- for block in faq_blocks -%}
+            {%- if block.settings.question != blank -%}
+              <details class="rar-coll-faq__item" {{ block.shopify_attributes }}>
+                <summary class="rar-coll-faq__question">
+                  <span>{{ block.settings.question | escape }}</span>
+                  <span class="svg-wrapper" aria-hidden="true">
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  </span>
+                </summary>
+                <div class="rar-coll-faq__answer rte">
+                  {{ block.settings.answer }}
+                </div>
+              </details>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{%- if faq_blocks.size > 0 -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for block in faq_blocks -%}
+        {%- if block.settings.question != blank -%}
+          {
+            "@type": "Question",
+            "name": {{ block.settings.question | json }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ block.settings.answer | strip_html | truncate: 500 | strip | json }}
+            }
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endif -%}
+      {%- endfor -%}
+    ]
+  }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "RAR — SEO / FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "faq_heading",
+      "label": "FAQ heading",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 56,
+      "label": "Padding top",
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 56,
+      "label": "Padding bottom",
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rich_text",
+      "name": "Rich text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "faq_item",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is this product made of?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Write the answer to the FAQ item here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RAR — SEO / FAQ",
+      "blocks": [
+        {
+          "type": "rich_text"
+        },
+        {
+          "type": "faq_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
