@@ -55,6 +55,9 @@
       "next_slide": "Slide right",
       "previous_slide": "Slide left",
       "name": "Slider"
+    },
+    "brand": {
+      "logo_alt": "Rack And Ride"
     }
   },
   "newsletter": {
@@ -275,7 +278,6 @@
       "announcement_bar": "Announcement bar",
       "promo_html": "Enjoy 10% off on orders over €100 — use code <span class=\"rar-promo-code\">SPRING10</span>"
     },
-
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",

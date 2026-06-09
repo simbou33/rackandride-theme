@@ -55,6 +55,9 @@
       "next_slide": "Diapositiva a la derecha",
       "previous_slide": "Diapositiva a la izquierda",
       "name": "Carrusel"
+    },
+    "brand": {
+      "logo_alt": "Rack And Ride"
     }
   },
   "newsletter": {
