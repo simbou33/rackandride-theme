@@ -723,13 +723,9 @@ a.link,
    PAGE COLLECTION — Phase 4
    ========================================================================== */
 
-/* Breadcrumbs dans la collection (hérite du spacing du banner) */
-.collection-hero + .rar-breadcrumbs,
+/* Breadcrumbs dans la collection */
 .rar-breadcrumbs + .collection-hero {
-  margin: 0;
-}
-.shopify-section:has(.collection-hero) .rar-breadcrumbs {
-  padding: 1rem 2rem 0;
+  margin-top: 0;
 }
 
 /* Hero collection */

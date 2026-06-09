@@ -21,7 +21,7 @@
   "sku": {{ _v.sku | default: product.id | json }},
   "brand": { "@type": "Brand", "name": "Rack And Ride" }
   {%- if product.featured_media -%}
-  ,"image": {{ _img | prepend: 'https:' | json }}
+  ,"image": {{ _img | json }}
   {%- endif -%}
   ,"offers": {
     "@type": "Offer",

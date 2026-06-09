@@ -61,6 +61,15 @@
 </div>
 
 {%- if faq_blocks.size > 0 -%}
+  {%- liquid
+    assign _faq_total = 0
+    for block in faq_blocks
+      if block.settings.question != blank
+        assign _faq_total = _faq_total | plus: 1
+      endif
+    endfor
+    assign _faq_idx = 0
+  -%}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -68,6 +77,7 @@
     "mainEntity": [
       {%- for block in faq_blocks -%}
         {%- if block.settings.question != blank -%}
+          {%- assign _faq_idx = _faq_idx | plus: 1 -%}
           {
             "@type": "Question",
             "name": {{ block.settings.question | json }},
@@ -75,7 +85,7 @@
               "@type": "Answer",
               "text": {{ block.settings.answer | strip_html | truncate: 500 | strip | json }}
             }
-          }{%- unless forloop.last -%},{%- endunless -%}
+          }{%- if _faq_idx < _faq_total -%},{%- endif -%}
         {%- endif -%}
       {%- endfor -%}
     ]
