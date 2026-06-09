@@ -1,0 +1,84 @@
+{%- comment -%}
+  Accordéons produit RAR — 4 onglets fixes pilotables via réglages de section.
+  Ordre : Matériaux · Livraison & Retours · Dimensions · Entretien
+  Dimensions : priorité metafield custom.dimensions, puis réglage de section, puis clé locale.
+  Params : product, section
+{%- endcomment -%}
+
+<div class="product__accordion accordion quick-add-hidden">
+  <details id="Details-rar-materials-{{ section.id }}">
+    <summary>
+      <div class="summary__title">
+        {% render 'icon-accordion', icon: 'leather' %}
+        <h2 class="h4 accordion__title">{{- 'products.rar_accordions.materials_title' | t -}}</h2>
+      </div>
+      {{- 'icon-caret.svg' | inline_asset_content -}}
+    </summary>
+    <div class="accordion__content rte" id="RarAccordion-materials-{{ section.id }}">
+      {%- if section.settings.rar_materials_content != blank -%}
+        {{ section.settings.rar_materials_content }}
+      {%- else -%}
+        <p>{{- 'products.rar_accordions.materials' | t -}}</p>
+      {%- endif -%}
+    </div>
+  </details>
+</div>
+
+<div class="product__accordion accordion quick-add-hidden">
+  <details id="Details-rar-shipping-{{ section.id }}">
+    <summary>
+      <div class="summary__title">
+        {% render 'icon-accordion', icon: 'truck' %}
+        <h2 class="h4 accordion__title">{{- 'products.rar_accordions.shipping_title' | t -}}</h2>
+      </div>
+      {{- 'icon-caret.svg' | inline_asset_content -}}
+    </summary>
+    <div class="accordion__content rte" id="RarAccordion-shipping-{{ section.id }}">
+      {%- if section.settings.rar_shipping_content != blank -%}
+        {{ section.settings.rar_shipping_content }}
+      {%- else -%}
+        <p>{{- 'products.rar_accordions.shipping' | t -}}</p>
+      {%- endif -%}
+    </div>
+  </details>
+</div>
+
+<div class="product__accordion accordion quick-add-hidden">
+  <details id="Details-rar-dimensions-{{ section.id }}">
+    <summary>
+      <div class="summary__title">
+        {% render 'icon-accordion', icon: 'ruler' %}
+        <h2 class="h4 accordion__title">{{- 'products.rar_accordions.dimensions_title' | t -}}</h2>
+      </div>
+      {{- 'icon-caret.svg' | inline_asset_content -}}
+    </summary>
+    <div class="accordion__content rte" id="RarAccordion-dimensions-{{ section.id }}">
+      {%- if product.metafields.custom.dimensions != blank -%}
+        <p>{{ product.metafields.custom.dimensions }}</p>
+      {%- elsif section.settings.rar_dimensions_content != blank -%}
+        {{ section.settings.rar_dimensions_content }}
+      {%- else -%}
+        <p>{{- 'products.rar_accordions.dimensions_fallback' | t -}}</p>
+      {%- endif -%}
+    </div>
+  </details>
+</div>
+
+<div class="product__accordion accordion quick-add-hidden">
+  <details id="Details-rar-care-{{ section.id }}">
+    <summary>
+      <div class="summary__title">
+        {% render 'icon-accordion', icon: 'heart' %}
+        <h2 class="h4 accordion__title">{{- 'products.rar_accordions.care_title' | t -}}</h2>
+      </div>
+      {{- 'icon-caret.svg' | inline_asset_content -}}
+    </summary>
+    <div class="accordion__content rte" id="RarAccordion-care-{{ section.id }}">
+      {%- if section.settings.rar_care_content != blank -%}
+        {{ section.settings.rar_care_content }}
+      {%- else -%}
+        <p>{{- 'products.rar_accordions.care' | t -}}</p>
+      {%- endif -%}
+    </div>
+  </details>
+</div>

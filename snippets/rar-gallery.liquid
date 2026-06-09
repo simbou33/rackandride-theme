@@ -1,0 +1,142 @@
+{%- comment -%}
+  RAR Product Gallery — carrousel CSS scroll-snap.
+  Mobile  : scroll horizontal natif + dots de pagination.
+  Desktop : image principale + rangée de vignettes cliquables en dessous.
+  Params  : product, section
+{%- endcomment -%}
+
+{%- assign _gal_images = product.media | where: 'media_type', 'image' -%}
+
+{%- if _gal_images.size > 0 -%}
+<div class="rar-gallery" id="RarGallery-{{ section.id }}">
+
+  <div class="rar-gallery__track"
+       id="RarGalleryTrack-{{ section.id }}"
+       role="list"
+       aria-label="{{ product.title | escape }}">
+    {%- for media in _gal_images -%}
+      <div class="rar-gallery__slide{% if forloop.first %} rar-gallery__slide--active{% endif %}"
+           role="listitem"
+           data-media-id="{{ media.id }}">
+        <img
+          src="{{ media | image_url: width: 900 }}"
+          srcset="
+            {{ media | image_url: width: 480 }} 480w,
+            {{ media | image_url: width: 900 }} 900w,
+            {{ media | image_url: width: 1200 }} 1200w
+          "
+          sizes="(min-width: 990px) 55vw, 100vw"
+          width="{{ media.width }}"
+          height="{{ media.height }}"
+          alt="{{ media.alt | escape | default: product.title | escape }}"
+          loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+          {% if forloop.first %}fetchpriority="high"{% endif %}
+        >
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {%- if _gal_images.size > 1 -%}
+    <div class="rar-gallery__dots" aria-hidden="true">
+      {%- for media in _gal_images -%}
+        <button
+          class="rar-gallery__dot{% if forloop.first %} rar-gallery__dot--active{% endif %}"
+          data-index="{{ forloop.index0 }}"
+          type="button"
+          tabindex="-1"
+        ></button>
+      {%- endfor -%}
+    </div>
+
+    <div class="rar-gallery__thumbs" role="list" aria-label="{{ product.title | escape }}">
+      {%- for media in _gal_images -%}
+        <button
+          class="rar-gallery__thumb{% if forloop.first %} rar-gallery__thumb--active{% endif %}"
+          data-index="{{ forloop.index0 }}"
+          data-media-id="{{ media.id }}"
+          type="button"
+          role="listitem"
+          aria-label="{{ media.alt | escape | default: product.title | escape }}"
+          aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+        >
+          <img
+            src="{{ media | image_url: width: 120 }}"
+            width="120"
+            height="120"
+            alt=""
+            loading="lazy"
+          >
+        </button>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+</div>
+
+<script>
+(function () {
+  var sid = {{ section.id | json }};
+  var gallery = document.getElementById('RarGallery-' + sid);
+  if (!gallery) return;
+
+  var track = gallery.querySelector('.rar-gallery__track');
+  var slides = Array.from(gallery.querySelectorAll('.rar-gallery__slide'));
+  var dots   = Array.from(gallery.querySelectorAll('.rar-gallery__dot'));
+  var thumbs = Array.from(gallery.querySelectorAll('.rar-gallery__thumb'));
+  var current = 0;
+
+  function isMobile() { return window.innerWidth < 750; }
+
+  function setActive(index) {
+    if (index < 0 || index >= slides.length) return;
+    current = index;
+
+    dots.forEach(function (d, i) { d.classList.toggle('rar-gallery__dot--active', i === index); });
+    thumbs.forEach(function (t, i) {
+      t.classList.toggle('rar-gallery__thumb--active', i === index);
+      t.setAttribute('aria-pressed', String(i === index));
+    });
+
+    if (isMobile()) {
+      track.scrollTo({ left: slides[index].offsetLeft, behavior: 'smooth' });
+    } else {
+      slides.forEach(function (s, i) { s.classList.toggle('rar-gallery__slide--active', i === index); });
+    }
+  }
+
+  thumbs.forEach(function (t) {
+    t.addEventListener('click', function () { setActive(parseInt(t.dataset.index, 10)); });
+  });
+  dots.forEach(function (d) {
+    d.addEventListener('click', function () { setActive(parseInt(d.dataset.index, 10)); });
+  });
+
+  /* Sync dots on mobile native scroll */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var idx = slides.indexOf(entry.target);
+          if (idx !== -1 && idx !== current) {
+            current = idx;
+            dots.forEach(function (d, i) { d.classList.toggle('rar-gallery__dot--active', i === idx); });
+            thumbs.forEach(function (t, i) { t.classList.toggle('rar-gallery__thumb--active', i === idx); });
+          }
+        }
+      });
+    }, { root: track, threshold: 0.5 });
+    slides.forEach(function (s) { io.observe(s); });
+  }
+
+  /* Dawn variant:change — jump to variant's featured media */
+  document.addEventListener('variant:change', function (e) {
+    var data = (e.detail && e.detail.data) ? e.detail.data : (e.detail || {});
+    var variant = data.variant || data.selectedVariant || null;
+    if (!variant || !variant.featured_media) return;
+    var mediaId = String(variant.featured_media.id);
+    var idx = slides.findIndex(function (s) { return s.dataset.mediaId === mediaId; });
+    if (idx !== -1) setActive(idx);
+  });
+})();
+</script>
+{%- endif -%}

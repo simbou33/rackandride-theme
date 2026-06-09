@@ -230,6 +230,16 @@
       "sort_by_label": "Sort by:",
       "to": "To",
       "clear_filter": "Remove filter"
+    },
+    "rar_accordions": {
+      "materials_title": "Materials",
+      "shipping_title": "Shipping & Returns",
+      "dimensions_title": "Dimensions",
+      "care_title": "Care Instructions",
+      "materials": "Made from solid selected oak, eco-treated with beeswax and linseed oil for natural, lasting protection. Natural cork pads prevent scratches. Stainless steel hardware included. 100% recyclable packaging. Handmade in the Landes, France.",
+      "shipping": "France: 3–5 business days. Europe: 5–7 business days. Carefully shipped from the Landes in recyclable packaging. Returns accepted within 30 days if unassembled and in original packaging.",
+      "dimensions_fallback": "See the description below for exact dimensions.",
+      "care": "Wipe with a dry or slightly damp cloth. To nourish the wood, apply a thin coat of linseed oil or beeswax once a year. Avoid prolonged moisture exposure. Well-maintained oak lasts for decades."
     }
   },
   "templates": {

@@ -230,6 +230,16 @@
       "show_more": "Mehr anzeigen",
       "show_less": "Weniger anzeigen",
       "filter_and_operator_subtitle": "Allen entsprechen"
+    },
+    "rar_accordions": {
+      "materials_title": "Materialien",
+      "shipping_title": "Versand & Rückgabe",
+      "dimensions_title": "Abmessungen",
+      "care_title": "Pflegehinweise",
+      "materials": "Gefertigt aus massiver, ausgewählter Eiche, umweltschonend behandelt mit Bienenwachs und Leinöl für natürlichen, dauerhaften Schutz. Korkpads verhindern Kratzer. Edelstahlschrauben inklusive. 100% recycelbare Verpackung. Handgefertigt in den Landes, Frankreich.",
+      "shipping": "Frankreich: 3–5 Werktage. Europa: 5–7 Werktage. Sorgfältig aus den Landes in recycelbarer Verpackung verschickt. Rückgaben innerhalb von 30 Tagen möglich, sofern das Produkt unbenutzt und in der Originalverpackung ist.",
+      "dimensions_fallback": "Genaue Abmessungen finden Sie in der Beschreibung unten.",
+      "care": "Mit einem trockenen oder leicht feuchten Tuch abwischen. Um das Holz zu pflegen, einmal jährlich eine dünne Schicht Leinöl oder Bienenwachs auftragen. Längere Feuchtigkeitseinwirkung vermeiden. Gut gepflegte Eiche hält Jahrzehnte."
     }
   },
   "templates": {

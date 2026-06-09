@@ -234,6 +234,16 @@
       "show_more": "Afficher plus",
       "show_less": "Afficher moins",
       "filter_and_operator_subtitle": "Tout associer"
+    },
+    "rar_accordions": {
+      "materials_title": "Matériaux",
+      "shipping_title": "Livraison & Retours",
+      "dimensions_title": "Dimensions",
+      "care_title": "Entretien",
+      "materials": "Fabriqué en chêne massif sélectionné, traité à la cire d'abeille et à l'huile de lin pour une protection naturelle et durable. Patins en liège naturel anti-rayures. Visserie inox fournie. Emballage 100% recyclable. Fabrication artisanale dans les Landes, France.",
+      "shipping": "France : 3 à 5 jours ouvrés. Europe : 5 à 7 jours ouvrés. Expédié avec soin depuis les Landes dans un emballage recyclable. Retours acceptés sous 30 jours si le produit est non monté et dans son emballage d'origine.",
+      "dimensions_fallback": "Consultez la description ci-dessous pour les dimensions exactes.",
+      "care": "Essuyez avec un chiffon sec ou légèrement humide. Pour nourrir le bois, appliquez une fine couche d'huile de lin ou de cire d'abeille une fois par an. Évitez une exposition prolongée à l'humidité. Un chêne bien entretenu dure des décennies."
     }
   },
   "templates": {

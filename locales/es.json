@@ -234,6 +234,16 @@
       "show_more": "Mostrar más",
       "show_less": "Mostrar menos",
       "filter_and_operator_subtitle": "Seleccionar todos"
+    },
+    "rar_accordions": {
+      "materials_title": "Materiales",
+      "shipping_title": "Envío y Devoluciones",
+      "dimensions_title": "Dimensiones",
+      "care_title": "Instrucciones de cuidado",
+      "materials": "Fabricado en roble macizo seleccionado, tratado con cera de abeja y aceite de linaza para una protección natural y duradera. Almohadillas de corcho natural anticorte. Tornillería de acero inoxidable incluida. Embalaje 100% reciclable. Fabricación artesanal en Las Landas, Francia.",
+      "shipping": "Francia: 3–5 días laborables. Europa: 5–7 días laborables. Enviado con cuidado desde Las Landas en embalaje reciclable. Se aceptan devoluciones en un plazo de 30 días si el producto no está montado y está en su embalaje original.",
+      "dimensions_fallback": "Consulta la descripción a continuación para conocer las dimensiones exactas.",
+      "care": "Limpiar con un paño seco o ligeramente húmedo. Para nutrir la madera, aplicar una fina capa de aceite de linaza o cera de abeja una vez al año. Evitar la exposición prolongada a la humedad. El roble bien cuidado dura décadas."
     }
   },
   "templates": {

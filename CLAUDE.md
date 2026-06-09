@@ -31,6 +31,11 @@ Toute chaîne visible → clé de traduction dans `locales/en.default.json` + `f
 - Perf/CWV : WebP responsive, lazy-load, `width`/`height` explicites, JS non-critique en `defer`
 - 1 seul H1/page, ancres descriptives, `alt` depuis Shopify, avis avec balisage Review
 
+## Metafields produit (Phase 2)
+- `custom.dimensions` (type : single_line_text_field) → affiché en priorité dans l'accordéon Dimensions
+  - Si vide → réglage de section `rar_dimensions_content` (richtext) → sinon clé `products.rar_accordions.dimensions_fallback`
+  - À créer dans Shopify Admin > Settings > Custom data > Products
+
 ## Rappels Phase 1
 - Header **« on scroll up »**
 - Barre d'annonce = « Enjoy 10% off on orders over €100 — use code SPRING10 » via clé de traduction, dans les 4 langues
