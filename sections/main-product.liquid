@@ -103,9 +103,6 @@
           {%- if title_block -%}
             <div class="product__title" {{ title_block.shopify_attributes }}>
               <h1>{{ product.title | escape }}</h1>
-              <a href="{{ product.url }}" class="product__title">
-                <h2 class="h1">{{ product.title | escape }}</h2>
-              </a>
             </div>
           {%- endif -%}
 
