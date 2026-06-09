@@ -594,3 +594,127 @@ a.link,
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+
+/* ==========================================================================
+   PAGE D'ACCUEIL — Phase 3
+   ========================================================================== */
+
+/* --- Hero (image-banner) ------------------------------------------------- */
+.banner--desktop-transparent .banner__heading,
+.banner__heading {
+  font-family: var(--font-heading-family);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+/* Gradient d'assombrissement sur fond d'image pour lisibilité du texte */
+.banner__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(31,43,51,0.55) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* --- Rich-text section (brand story) ------------------------------------ */
+.rich-text__heading {
+  font-family: var(--font-heading-family);
+  font-weight: 700;
+  color: var(--rar-ink);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.rich-text__heading em {
+  font-style: italic;
+  color: var(--rar-oak);
+}
+.rich-text__text {
+  font-size: 1.6rem;
+  line-height: 1.65;
+  color: rgba(31, 43, 51, 0.75);
+  max-width: 68ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rich-text__wrapper {
+  gap: 2.4rem;
+}
+
+/* --- Section headings (featured-collection, multicolumn, etc.) ---------- */
+.title-wrapper .title,
+.collection__title,
+.section-header .title {
+  font-family: var(--font-heading-family);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--rar-ink);
+}
+/* Ligne chêne sous le titre de section */
+.title-wrapper-with-link .title::after,
+.section-header .title::after {
+  content: '';
+  display: block;
+  width: 3.2rem;
+  height: 2px;
+  background: var(--rar-oak);
+  margin-top: 0.8rem;
+  border-radius: 1px;
+}
+
+/* --- Multicolumn (trust / features bar) --------------------------------- */
+.multicolumn-card {
+  border-radius: var(--rar-radius);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.multicolumn-card__info h3 {
+  font-family: var(--font-heading-family);
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--rar-ink);
+  margin-bottom: 0.8rem;
+}
+.multicolumn-card__info .rte {
+  font-size: 1.4rem;
+  line-height: 1.55;
+  color: rgba(31, 43, 51, 0.7);
+}
+.multicolumn-card__image-wrapper img {
+  border-radius: var(--rar-radius-sm);
+}
+
+/* --- Card produit (featured-collection, collection pages) --------------- */
+.card--standard.card--media {
+  border-radius: var(--rar-radius);
+  overflow: hidden;
+}
+.card__information .card__heading {
+  font-family: var(--font-heading-family);
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -0.005em;
+  color: var(--rar-ink);
+}
+.card__information .price {
+  color: var(--rar-ink);
+  font-weight: 600;
+}
+/* Badge promo en terracotta sur les cartes */
+.card__badge .badge--sale,
+.card__badge .badge--on-sale {
+  background: var(--rar-terracotta);
+  color: #fff;
+}
+
+/* --- Collage section ---------------------------------------------------- */
+.collage .card {
+  border-radius: var(--rar-radius);
+}
+.collage__item--product .card__heading {
+  font-family: var(--font-heading-family);
+}
+
+/* --- Spacing inter-sections --------------------------------------------- */
+.shopify-section + .shopify-section .section-padding,
+.shopify-section + .shopify-section .rich-text,
+.shopify-section + .shopify-section .multicolumn {
+  border-top: 1px solid rgba(31, 43, 51, 0.07);
+}

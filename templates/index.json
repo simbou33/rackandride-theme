@@ -6,15 +6,15 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "Handcrafted Oak Wall Mounts",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "text": "Premium solid oak racks for surf, skate, snow & bikes — made in the Landes, France.",
+            "text_style": "subtitle"
           }
         },
         "button": {
@@ -22,10 +22,10 @@
           "settings": {
             "button_label_1": "Shop all",
             "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_style_secondary_1": false,
+            "button_label_2": "Our story",
+            "button_link_2": "shopify://pages/about",
+            "button_style_secondary_2": true
           }
         }
       },
@@ -35,7 +35,7 @@
         "button"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 35,
         "image_height": "large",
         "desktop_content_position": "bottom-center",
         "show_text_box": false,
@@ -52,14 +52,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
+            "heading": "Born in the Landes, built for life outdoors.",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "text": "<p>Each Rack And Ride mount is hand-finished from solid French oak, designed to hold your boards, bikes and skates in style — on the wall where they belong.</p>"
           }
         }
       },
@@ -70,28 +70,83 @@
       "settings": {
         "color_scheme": "scheme-1",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "padding_top": 56,
+        "padding_bottom": 24
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "Our racks",
         "heading_size": "h2",
         "collection": "all",
         "products_to_show": 8,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "show_view_all": true,
+        "swipe_on_mobile": true,
+        "image_ratio": "square",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
+        "show_rating": true,
         "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
+        "padding_top": 36,
+        "padding_bottom": 56
+      }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+            "title": "Solid French Oak",
+            "text": "<p>Each mount is crafted from premium solid oak sourced in the Landes region of France — built to last a lifetime.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+            "title": "Free delivery in Europe",
+            "text": "<p>Orders over €100 ship for free across Europe. Express options available at checkout.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column3": {
+          "type": "column",
+          "settings": {
+            "title": "2-year guarantee",
+            "text": "<p>We stand behind every mount we make. If something isn't right, we'll fix it — guaranteed.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ],
+      "settings": {
+        "title": "Why Rack And Ride",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "swipe_on_mobile": false,
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "collage": {
@@ -123,11 +178,11 @@
         "collection-1"
       ],
       "settings": {
-        "heading": "Multimedia collage",
+        "heading": "Made to display",
         "heading_size": "h2",
         "desktop_layout": "left",
         "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -139,63 +194,10 @@
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "heading_size": "h1",
         "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "full_width": true,
+        "color_scheme": "scheme-3",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
@@ -203,8 +205,8 @@
     "image_banner",
     "rich_text",
     "featured_collection",
+    "multicolumn",
     "collage",
-    "video",
-    "multicolumn"
+    "video"
   ]
 }

@@ -316,6 +316,40 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
+    {%- if request.page_type == 'index' -%}
+      {%- liquid
+        assign _sameAs = ''
+        if settings.social_facebook_link != blank
+          assign _sameAs = _sameAs | append: '"' | append: settings.social_facebook_link | append: '",'
+        endif
+        if settings.social_instagram_link != blank
+          assign _sameAs = _sameAs | append: '"' | append: settings.social_instagram_link | append: '",'
+        endif
+        if settings.social_youtube_link != blank
+          assign _sameAs = _sameAs | append: '"' | append: settings.social_youtube_link | append: '",'
+        endif
+        if settings.social_tiktok_link != blank
+          assign _sameAs = _sameAs | append: '"' | append: settings.social_tiktok_link | append: '",'
+        endif
+        if settings.social_pinterest_link != blank
+          assign _sameAs = _sameAs | append: '"' | append: settings.social_pinterest_link | append: '",'
+        endif
+        assign _sameAs = _sameAs | remove_last: ','
+      -%}
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": {{ shop.name | json }},
+        "url": {{ shop.url | json }},
+        "logo": "{{ 'logo-rackandride-noir.svg' | asset_url }}"
+        {%- if _sameAs != blank -%}
+        ,"sameAs": [{{ _sameAs }}]
+        {%- endif -%}
+      }
+      </script>
+    {%- endif -%}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
