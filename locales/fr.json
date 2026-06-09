@@ -315,6 +315,10 @@
         }
       }
     },
+    "rar_category_tiles": {
+      "heading": "Nos catégories",
+      "no_tiles": "Aucune catégorie configurée."
+    },
     "rar_collection_seo": {
       "read_more": "Lire la suite",
       "read_less": "Réduire"

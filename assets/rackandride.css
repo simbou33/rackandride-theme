@@ -1078,3 +1078,139 @@ a.link,
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ============================================================
+   RAR Category Tiles
+   ============================================================ */
+
+.rar-cat-tiles__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 2.6vw, 3rem);
+  font-weight: 700;
+  color: var(--rar-ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 3.2rem;
+}
+
+.rar-cat-tiles__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cat-cols, 4), 1fr);
+  gap: 1.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rar-cat-tile-wrap {
+  min-width: 0;
+}
+
+.rar-cat-tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 3 / 4;
+  text-decoration: none;
+  background: var(--rar-ink);
+}
+
+.rar-cat-tile__media {
+  position: absolute;
+  inset: 0;
+}
+
+.rar-cat-tile__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+.rar-cat-tile__placeholder {
+  width: 100%;
+  height: 100%;
+  background: rgba(28, 40, 48, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rar-cat-tile__placeholder svg {
+  width: 40%;
+  height: 40%;
+  opacity: 0.3;
+}
+
+.rar-cat-tile__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.58) 0%,
+    rgba(0, 0, 0, 0.18) 45%,
+    rgba(0, 0, 0, 0.04) 100%
+  );
+  transition: background 0.35s ease;
+}
+
+.rar-cat-tile__title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.4rem 1.6rem;
+  color: #ffffff;
+  font-family: var(--font-heading-family);
+  font-size: clamp(1.3rem, 1.6vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  z-index: 1;
+  transition: transform 0.35s ease;
+}
+
+/* Hover */
+@media (hover: hover) {
+  .rar-cat-tile:hover .rar-cat-tile__img {
+    transform: scale(1.06);
+  }
+
+  .rar-cat-tile:hover .rar-cat-tile__overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.32) 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+  }
+
+  .rar-cat-tile:hover .rar-cat-tile__title {
+    transform: translateY(-0.4rem);
+  }
+}
+
+/* Focus visible */
+.rar-cat-tile:focus-visible {
+  outline: 2px solid var(--rar-oak);
+  outline-offset: 3px;
+}
+
+/* Responsive */
+@media screen and (max-width: 989px) and (min-width: 750px) {
+  .rar-cat-tiles__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .rar-cat-tiles__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .rar-cat-tile__title {
+    padding: 1rem 1.2rem;
+  }
+}

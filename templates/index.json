@@ -65,6 +65,75 @@
         "padding_bottom": 28
       }
     },
+    "rar_category_tiles": {
+      "type": "rar-category-tiles",
+      "blocks": {
+        "tile-surf": {
+          "type": "tile",
+          "settings": {
+            "title": "Supports Muraux Surf",
+            "link": "shopify://collections/surfboard-wall-mount"
+          }
+        },
+        "tile-skate": {
+          "type": "tile",
+          "settings": {
+            "title": "Supports Muraux Skateboard",
+            "link": "shopify://collections/skateboard-wall-mount"
+          }
+        },
+        "tile-snow": {
+          "type": "tile",
+          "settings": {
+            "title": "Supports Muraux Snowboard",
+            "link": "shopify://collections/snowboard-wall-mount"
+          }
+        },
+        "tile-ski": {
+          "type": "tile",
+          "settings": {
+            "title": "Supports Muraux Skis",
+            "link": "shopify://collections/ski-wall-mount"
+          }
+        },
+        "tile-velo": {
+          "type": "tile",
+          "settings": {
+            "title": "Racks Vélo",
+            "link": "shopify://collections/bike-rack"
+          }
+        },
+        "tile-wake": {
+          "type": "tile",
+          "settings": {
+            "title": "Racks Wake & Kite",
+            "link": "shopify://collections/wake-kite-rack"
+          }
+        },
+        "tile-deco": {
+          "type": "tile",
+          "settings": {
+            "title": "Déco",
+            "link": "shopify://collections/home-deco"
+          }
+        }
+      },
+      "block_order": [
+        "tile-surf",
+        "tile-skate",
+        "tile-snow",
+        "tile-ski",
+        "tile-velo",
+        "tile-wake",
+        "tile-deco"
+      ],
+      "settings": {
+        "columns_desktop": "4",
+        "color_scheme": "scheme-1",
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
     "rich_text": {
       "type": "rich-text",
       "blocks": {
@@ -233,6 +302,7 @@
   "order": [
     "image_banner",
     "rar_trust_badges",
+    "rar_category_tiles",
     "rich_text",
     "featured_collection",
     "collage",

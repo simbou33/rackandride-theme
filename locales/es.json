@@ -315,6 +315,10 @@
         }
       }
     },
+    "rar_category_tiles": {
+      "heading": "Categorías",
+      "no_tiles": "No hay categorías configuradas."
+    },
     "rar_collection_seo": {
       "read_more": "Leer más",
       "read_less": "Leer menos"

@@ -306,6 +306,10 @@
         }
       }
     },
+    "rar_category_tiles": {
+      "heading": "Kategorien",
+      "no_tiles": "Keine Kategorien konfiguriert."
+    },
     "rar_collection_seo": {
       "read_more": "Mehr lesen",
       "read_less": "Weniger"

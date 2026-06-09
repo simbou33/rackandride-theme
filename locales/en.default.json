@@ -306,6 +306,10 @@
         }
       }
     },
+    "rar_category_tiles": {
+      "heading": "Shop by category",
+      "no_tiles": "No categories configured."
+    },
     "rar_collection_seo": {
       "read_more": "Read more",
       "read_less": "Read less"

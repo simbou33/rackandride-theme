@@ -1,0 +1,196 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .rar-cat-tiles-{{ section.id }} {
+    --cat-cols: {{ section.settings.columns_desktop }};
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign _heading = section.settings.heading
+  if _heading == blank
+    assign _heading = 'sections.rar_category_tiles.heading' | t
+  endif
+  assign tile_blocks = section.blocks | where: 'type', 'tile'
+-%}
+
+<div class="rar-cat-tiles section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient rar-cat-tiles-{{ section.id }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="page-width">
+
+    {%- if _heading != blank -%}
+      <h2 class="rar-cat-tiles__heading">{{ _heading | escape }}</h2>
+    {%- endif -%}
+
+    <ul class="rar-cat-tiles__grid" role="list">
+      {%- for block in tile_blocks -%}
+        <li class="rar-cat-tile-wrap" {{ block.shopify_attributes }}>
+          <a
+            class="rar-cat-tile"
+            href="{{ block.settings.link | default: '#' }}"
+            {% if block.settings.title != blank %}aria-label="{{ block.settings.title | escape }}"{% endif %}
+          >
+            <div class="rar-cat-tile__media">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 800
+                  | image_tag:
+                    class: 'rar-cat-tile__img',
+                    widths: '300, 400, 600, 800',
+                    sizes: '(min-width: 990px) calc((100vw - 13rem) / 4), (min-width: 750px) calc((100vw - 10rem) / 3), calc((100vw - 4rem) / 2)',
+                    loading: 'lazy'
+                }}
+              {%- else -%}
+                <div class="rar-cat-tile__placeholder">
+                  {{- 'collection-1' | placeholder_svg_tag: 'placeholder-svg' -}}
+                </div>
+              {%- endif -%}
+            </div>
+            <div class="rar-cat-tile__overlay" aria-hidden="true"></div>
+            {%- if block.settings.title != blank -%}
+              <span class="rar-cat-tile__title">{{ block.settings.title | escape }}</span>
+            {%- endif -%}
+          </a>
+        </li>
+      {%- else -%}
+        <li class="rar-cat-tile-wrap rar-cat-tile-wrap--empty">
+          <p>{{ 'sections.rar_category_tiles.no_tiles' | t }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "RAR — Catégories",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre de section",
+      "info": "Laisser vide pour utiliser le titre traduit automatiquement."
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Colonnes (desktop)",
+      "options": [
+        { "value": "3", "label": "3 colonnes" },
+        { "value": "4", "label": "4 colonnes" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Tuile catégorie",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Nom de catégorie"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RAR — Catégories visuelles",
+      "blocks": [
+        {
+          "type": "tile",
+          "settings": {
+            "title": "Supports Muraux Surf",
+            "link": "shopify://collections/surfboard-wall-mount"
+          }
+        },
+        {
+          "type": "tile",
+          "settings": {
+            "title": "Supports Muraux Skateboard",
+            "link": "shopify://collections/skateboard-wall-mount"
+          }
+        },
+        {
+          "type": "tile",
+          "settings": {
+            "title": "Supports Muraux Snowboard",
+            "link": "shopify://collections/snowboard-wall-mount"
+          }
+        },
+        {
+          "type": "tile",
+          "settings": {
+            "title": "Supports Muraux Skis",
+            "link": "shopify://collections/ski-wall-mount"
+          }
+        },
+        {
+          "type": "tile",
+          "settings": {
+            "title": "Racks Vélo",
+            "link": "shopify://collections/bike-rack"
+          }
+        },
+        {
+          "type": "tile",
+          "settings": {
+            "title": "Racks Wake & Kite",
+            "link": "shopify://collections/wake-kite-rack"
+          }
+        },
+        {
+          "type": "tile",
+          "settings": {
+            "title": "Déco",
+            "link": "shopify://collections/home-deco"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
