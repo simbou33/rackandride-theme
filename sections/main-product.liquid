@@ -732,10 +732,10 @@
       endif
     -%}
 
-    <script type="application/ld+json">
-      {{ product | structured_data }}
-    </script>
+    {%- render 'rar-product-jsonld', product: product -%}
   </div>
+
+  {%- render 'rar-sticky-atc', product: product, section: section -%}
 </product-info>
 
 {% schema %}

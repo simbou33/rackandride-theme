@@ -1,0 +1,82 @@
+{%- unless settings.rar_enable_sticky_atc == false -%}
+{%- assign _variant = product.selected_or_first_available_variant -%}
+<div
+  id="StickyAtc-{{ section.id }}"
+  class="rar-sticky-atc"
+  aria-hidden="true"
+  data-section="{{ section.id }}"
+>
+  <div class="rar-sticky-atc__inner page-width">
+    <div class="rar-sticky-atc__meta">
+      {%- if product.featured_media -%}
+        <img
+          src="{{ product.featured_media | image_url: width: 80 }}"
+          width="40"
+          height="40"
+          alt=""
+          loading="lazy"
+          class="rar-sticky-atc__thumb"
+        >
+      {%- endif -%}
+      <div class="rar-sticky-atc__info">
+        <p class="rar-sticky-atc__title">{{ product.title | escape }}</p>
+        <p class="rar-sticky-atc__price" id="StickyAtcPrice-{{ section.id }}">
+          {{- _variant.price | money -}}
+          {%- if _variant.compare_at_price > _variant.price -%}
+            <s class="rar-sticky-atc__was">{{ _variant.compare_at_price | money }}</s>
+          {%- endif -%}
+        </p>
+      </div>
+    </div>
+    <button
+      type="button"
+      class="rar-sticky-atc__btn button button--primary"
+      id="StickyAtcBtn-{{ section.id }}"
+      {% unless _variant.available %}disabled{% endunless %}
+    >
+      {%- if _variant.available -%}
+        {{- 'products.product.add_to_cart' | t -}}
+      {%- else -%}
+        {{- 'products.product.sold_out' | t -}}
+      {%- endif -%}
+    </button>
+  </div>
+</div>
+
+<script defer>
+(function () {
+  var sid = {{ section.id | json }};
+  var bar = document.getElementById('StickyAtc-' + sid);
+  var mainBtn = document.getElementById('ProductSubmitButton-' + sid);
+  var stickyBtn = document.getElementById('StickyAtcBtn-' + sid);
+  if (!bar || !mainBtn || !stickyBtn) return;
+
+  // Show when main ATC leaves viewport
+  new IntersectionObserver(function (entries) {
+    var visible = entries[0].isIntersecting;
+    bar.classList.toggle('rar-sticky-atc--visible', !visible);
+    bar.setAttribute('aria-hidden', String(visible));
+  }, { threshold: 0 }).observe(mainBtn);
+
+  // Proxy click to main ATC (Dawn handles cart drawer + errors)
+  stickyBtn.addEventListener('click', function () { mainBtn.click(); });
+
+  // Mirror disabled state from main button
+  new MutationObserver(function () {
+    stickyBtn.disabled = mainBtn.disabled;
+  }).observe(mainBtn, { attributes: true, attributeFilter: ['disabled'] });
+
+  // Mirror price from main price element
+  var priceEl = document.getElementById('price-' + sid);
+  var stickyPrice = document.getElementById('StickyAtcPrice-' + sid);
+  if (priceEl && stickyPrice) {
+    new MutationObserver(function () {
+      var saleItem = priceEl.querySelector('.price-item--sale');
+      var regularItem = priceEl.querySelector('.price-item--regular');
+      var price = (saleItem || regularItem);
+      if (price) stickyPrice.textContent = price.textContent.trim();
+    }).observe(priceEl, { childList: true, subtree: true, characterData: true });
+  }
+})();
+</script>
+{%- endunless -%}

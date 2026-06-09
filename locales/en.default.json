@@ -58,6 +58,9 @@
     },
     "brand": {
       "logo_alt": "Rack And Ride"
+    },
+    "breadcrumbs": {
+      "home": "Home"
     }
   },
   "newsletter": {
