@@ -293,6 +293,19 @@
     }
   },
   "sections": {
+    "main-product": {
+      "blocks": {
+        "usp_list": {
+          "defaults": {
+            "item_1": "Schnelle und einfache Montage",
+            "item_2": "Öko-behandelte Massiveiche",
+            "item_3": "Ultrastarker Halt",
+            "item_4": "Kork-Kratzschutz",
+            "item_5": "Passend für alle Board-Größen"
+          }
+        }
+      }
+    },
     "rar_trust_badges": {
       "shipping": "Kostenloser Versand ab 100€",
       "payment": "Sichere Zahlung",

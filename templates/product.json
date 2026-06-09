@@ -23,6 +23,10 @@
         "price": {
           "type": "price"
         },
+        "usp_list": {
+          "type": "usp_list",
+          "settings": {}
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -54,6 +58,7 @@
         "title",
         "caption",
         "price",
+        "usp_list",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",

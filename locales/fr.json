@@ -302,6 +302,19 @@
     }
   },
   "sections": {
+    "main-product": {
+      "blocks": {
+        "usp_list": {
+          "defaults": {
+            "item_1": "Installation rapide et facile",
+            "item_2": "Chêne massif éco-traité",
+            "item_3": "Maintien ultra-sécurisé",
+            "item_4": "Protection anti-rayures en liège",
+            "item_5": "Compatible toutes tailles de board"
+          }
+        }
+      }
+    },
     "rar_trust_badges": {
       "shipping": "Livraison offerte dès 100€",
       "payment": "Paiement sécurisé",

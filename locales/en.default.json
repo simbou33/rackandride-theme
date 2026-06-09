@@ -293,6 +293,19 @@
     }
   },
   "sections": {
+    "main-product": {
+      "blocks": {
+        "usp_list": {
+          "defaults": {
+            "item_1": "Quick and easy installation",
+            "item_2": "Eco-treated solid oak",
+            "item_3": "Ultra-secure hold",
+            "item_4": "Cork anti-scratch protection",
+            "item_5": "Fits all board sizes"
+          }
+        }
+      }
+    },
     "rar_trust_badges": {
       "shipping": "Free shipping over €100",
       "payment": "Secure payment",

@@ -302,6 +302,19 @@
     }
   },
   "sections": {
+    "main-product": {
+      "blocks": {
+        "usp_list": {
+          "defaults": {
+            "item_1": "Instalación rápida y sencilla",
+            "item_2": "Roble macizo ecotratado",
+            "item_3": "Sujeción ultrasegura",
+            "item_4": "Protección anticrayaduras en corcho",
+            "item_5": "Compatible con todos los tamaños de tabla"
+          }
+        }
+      }
+    },
     "rar_trust_badges": {
       "shipping": "Envío gratis desde 100€",
       "payment": "Pago seguro",

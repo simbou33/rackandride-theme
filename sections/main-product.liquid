@@ -96,6 +96,7 @@
             assign qty_block       = section.blocks | where: 'type', 'quantity_selector'| first
             assign buy_block       = section.blocks | where: 'type', 'buy_buttons'      | first
             assign rating_block    = section.blocks | where: 'type', 'rating'           | first
+            assign usp_block       = section.blocks | where: 'type', 'usp_list'         | first
           -%}
 
           {%- comment -%} ── 1. TITRE ── {%- endcomment -%}
@@ -139,6 +140,11 @@
                 {{ form | payment_terms }}
               {%- endform -%}
             </div>
+          {%- endif -%}
+
+          {%- comment -%} ── USP LIST ── {%- endcomment -%}
+          {%- if usp_block -%}
+            {%- render 'rar-usp-list', block: usp_block -%}
           {%- endif -%}
 
           {%- comment -%} ── AVIS (rating) ── {%- endcomment -%}
@@ -2503,6 +2509,83 @@
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         }
+      ]
+    },
+    {
+      "type": "usp_list",
+      "name": "Points forts produit",
+      "limit": 1,
+      "settings": [
+        { "type": "paragraph", "content": "Item 1" },
+        {
+          "type": "select", "id": "item_1_icon", "label": "Icône",
+          "default": "bolt",
+          "options": [
+            { "value": "bolt",   "label": "Éclair (rapide)" },
+            { "value": "leaf",   "label": "Feuille (éco)" },
+            { "value": "shield", "label": "Bouclier (sécurisé)" },
+            { "value": "layers", "label": "Couches (protection)" },
+            { "value": "ruler",  "label": "Règle (taille)" },
+            { "value": "check",  "label": "Coche" }
+          ]
+        },
+        { "type": "text", "id": "item_1_text", "label": "Texte (vide = traduit auto)" },
+        { "type": "paragraph", "content": "Item 2" },
+        {
+          "type": "select", "id": "item_2_icon", "label": "Icône",
+          "default": "leaf",
+          "options": [
+            { "value": "bolt",   "label": "Éclair (rapide)" },
+            { "value": "leaf",   "label": "Feuille (éco)" },
+            { "value": "shield", "label": "Bouclier (sécurisé)" },
+            { "value": "layers", "label": "Couches (protection)" },
+            { "value": "ruler",  "label": "Règle (taille)" },
+            { "value": "check",  "label": "Coche" }
+          ]
+        },
+        { "type": "text", "id": "item_2_text", "label": "Texte (vide = traduit auto)" },
+        { "type": "paragraph", "content": "Item 3" },
+        {
+          "type": "select", "id": "item_3_icon", "label": "Icône",
+          "default": "shield",
+          "options": [
+            { "value": "bolt",   "label": "Éclair (rapide)" },
+            { "value": "leaf",   "label": "Feuille (éco)" },
+            { "value": "shield", "label": "Bouclier (sécurisé)" },
+            { "value": "layers", "label": "Couches (protection)" },
+            { "value": "ruler",  "label": "Règle (taille)" },
+            { "value": "check",  "label": "Coche" }
+          ]
+        },
+        { "type": "text", "id": "item_3_text", "label": "Texte (vide = traduit auto)" },
+        { "type": "paragraph", "content": "Item 4" },
+        {
+          "type": "select", "id": "item_4_icon", "label": "Icône",
+          "default": "layers",
+          "options": [
+            { "value": "bolt",   "label": "Éclair (rapide)" },
+            { "value": "leaf",   "label": "Feuille (éco)" },
+            { "value": "shield", "label": "Bouclier (sécurisé)" },
+            { "value": "layers", "label": "Couches (protection)" },
+            { "value": "ruler",  "label": "Règle (taille)" },
+            { "value": "check",  "label": "Coche" }
+          ]
+        },
+        { "type": "text", "id": "item_4_text", "label": "Texte (vide = traduit auto)" },
+        { "type": "paragraph", "content": "Item 5" },
+        {
+          "type": "select", "id": "item_5_icon", "label": "Icône",
+          "default": "ruler",
+          "options": [
+            { "value": "bolt",   "label": "Éclair (rapide)" },
+            { "value": "leaf",   "label": "Feuille (éco)" },
+            { "value": "shield", "label": "Bouclier (sécurisé)" },
+            { "value": "layers", "label": "Couches (protection)" },
+            { "value": "ruler",  "label": "Règle (taille)" },
+            { "value": "check",  "label": "Coche" }
+          ]
+        },
+        { "type": "text", "id": "item_5_text", "label": "Texte (vide = traduit auto)" }
       ]
     }
   ],
