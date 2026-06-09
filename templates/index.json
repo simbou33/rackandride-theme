@@ -83,7 +83,7 @@
         "content_alignment": "center",
         "color_scheme": "scheme-1",
         "full_width": true,
-        "padding_top": 40,
+        "padding_top": 48,
         "padding_bottom": 0
       }
     },
@@ -111,8 +111,8 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 28,
-        "padding_bottom": 36
+        "padding_top": 34,
+        "padding_bottom": 43
       }
     },
     "collage": {
@@ -150,8 +150,8 @@
         "mobile_layout": "collage",
         "card_styles": "product-card-wrapper",
         "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 43,
+        "padding_bottom": 43
       }
     },
     "video": {
@@ -164,8 +164,8 @@
         "description": "",
         "full_width": false,
         "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 43,
+        "padding_bottom": 43
       }
     },
     "multicolumn": {
@@ -217,8 +217,8 @@
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 43,
+        "padding_bottom": 43
       }
     }
   },

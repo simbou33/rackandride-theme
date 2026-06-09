@@ -6,15 +6,15 @@
 
 :root {
   /* --- Palette de marque (valeurs fixes, dispo partout quel que soit le scheme) --- */
-  --rar-cream: #faf6ef;      /* fond lin */
-  --rar-sand: #efe7d9;       /* surface sable */
-  --rar-oak: #b07c4c;        /* chêne miel — accent (liens/focus/icônes) */
+  --rar-cream: #ffffff;      /* fond blanc pur — premium / espace négatif */
+  --rar-sand: #f8f5f0;       /* surface blanc cassé — contraste doux */
+  --rar-oak: #b07c4c;        /* chêne miel — accent (boutons/liens/underlines/icônes) */
   --rar-oak-strong: #a8703f; /* chêne profond — fonds de boutons (contraste++) */
   --rar-oak-light: #c89b6a;  /* chêne clair — accents sur fond sombre */
-  --rar-ink: #1f2b33;        /* encre bleu nuit — texte/titres */
-  --rar-sage: #7e8e72;       /* vert sauge — éco */
+  --rar-ink: #1c2830;        /* encre froide profonde — texte/titres */
+  --rar-sage: #7a8b6e;       /* vert sauge désaturé — badges éco */
   --rar-sage-deep: #5e6e52;
-  --rar-terracotta: #c16e4f; /* terracotta — promo/soldes */
+  --rar-terracotta: #c16e4f; /* terracotta — UNIQUEMENT badges promo/soldes */
 
   /* Accent générique consommé par les composants (override possible par section) */
   --rar-accent: var(--rar-oak);
@@ -95,7 +95,7 @@ a.link,
 @media (hover: hover) {
   .button:not([disabled]):hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px -8px rgba(var(--color-shadow, 31, 43, 51), 0.45);
+    box-shadow: 0 8px 20px -8px rgba(var(--color-shadow, 28, 40, 48), 0.45);
   }
   .button:not([disabled]):active {
     transform: translateY(0);
@@ -231,7 +231,7 @@ a.link,
 /* Ombre discrète seulement une fois la page défilée (header sticky révélé) */
 .shopify-section-header-sticky.scrolled-past-header .header-wrapper,
 .scrolled-past-header .header-wrapper {
-  box-shadow: 0 6px 24px -16px rgba(31, 43, 51, 0.5);
+  box-shadow: 0 6px 24px -16px rgba(28, 40, 48, 0.5);
 }
 /* Séparateur bas du header : trait sable plutôt que gris Dawn */
 .header-wrapper--border-bottom {
@@ -307,7 +307,7 @@ a.link,
 .header__submenu.list-menu__submenu,
 .mega-menu__content {
   border-radius: var(--rar-radius);
-  box-shadow: 0 18px 40px -24px rgba(31, 43, 51, 0.45);
+  box-shadow: 0 18px 40px -24px rgba(28, 40, 48, 0.45);
   border: 1px solid rgba(var(--color-foreground), 0.06);
 }
 
@@ -315,7 +315,7 @@ a.link,
    FOOTER — fond sable, hiérarchie claire, liens chêne
    -------------------------------------------------------------------------- */
 .footer__content-top {
-  padding-block: 5.2rem;
+  padding-block: 6.2rem;
 }
 .footer-block__heading {
   font-family: var(--font-body-family);
@@ -377,7 +377,7 @@ a.link,
   font-family: var(--font-heading-family);
 }
 .cart-drawer__overlay {
-  background-color: rgba(31, 43, 51, 0.45);
+  background-color: rgba(28, 40, 48, 0.45);
 }
 
 /* Barre de progression « livraison offerte » (snippet rar-free-shipping-bar) */
@@ -417,8 +417,8 @@ a.link,
   right: 0;
   z-index: 99;
   background: var(--color-background);
-  border-top: 1px solid rgba(31, 43, 51, 0.12);
-  box-shadow: 0 -4px 16px rgba(31, 43, 51, 0.08);
+  border-top: 1px solid rgba(28, 40, 48, 0.12);
+  box-shadow: 0 -4px 16px rgba(28, 40, 48, 0.08);
   padding: 1rem 0;
   transform: translateY(100%);
   transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
@@ -466,7 +466,7 @@ a.link,
 }
 .rar-sticky-atc__was {
   margin-left: 0.6rem;
-  color: rgba(31, 43, 51, 0.45);
+  color: rgba(28, 40, 48, 0.45);
   text-decoration: line-through;
 }
 .rar-sticky-atc__btn {
@@ -499,10 +499,10 @@ a.link,
   margin: 0;
   padding: 0;
   font-size: 1.2rem;
-  color: rgba(31, 43, 51, 0.55);
+  color: rgba(28, 40, 48, 0.55);
 }
 .rar-breadcrumbs__link {
-  color: rgba(31, 43, 51, 0.55);
+  color: rgba(28, 40, 48, 0.55);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -545,14 +545,14 @@ a.link,
   color: var(--rar-ink);
 }
 .price__sale .price-item--regular {
-  color: rgba(31, 43, 51, 0.4);
+  color: rgba(28, 40, 48, 0.4);
 }
 
 /* Accordéons produit (collapsible_tab) */
 .product__accordion .accordion summary {
   padding: 1.4rem 0;
   cursor: pointer;
-  border-bottom: 1px solid rgba(31, 43, 51, 0.1);
+  border-bottom: 1px solid rgba(28, 40, 48, 0.1);
   list-style: none;
 }
 .product__accordion .accordion summary::-webkit-details-marker { display: none; }
@@ -577,8 +577,8 @@ a.link,
   padding: 1.2rem 0 1.6rem;
   font-size: 1.4rem;
   line-height: 1.6;
-  color: rgba(31, 43, 51, 0.75);
-  border-bottom: 1px solid rgba(31, 43, 51, 0.08);
+  color: rgba(28, 40, 48, 0.75);
+  border-bottom: 1px solid rgba(28, 40, 48, 0.08);
 }
 
 /* Variant picker — swatch actif en chêne */
@@ -611,7 +611,7 @@ a.link,
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(31,43,51,0.55) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(28,40,48,0.55) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -630,7 +630,7 @@ a.link,
 .rich-text__text {
   font-size: 1.6rem;
   line-height: 1.65;
-  color: rgba(31, 43, 51, 0.75);
+  color: rgba(28, 40, 48, 0.75);
   max-width: 68ch;
   margin-left: auto;
   margin-right: auto;
@@ -675,7 +675,7 @@ a.link,
 .multicolumn-card__info .rte {
   font-size: 1.4rem;
   line-height: 1.55;
-  color: rgba(31, 43, 51, 0.7);
+  color: rgba(28, 40, 48, 0.7);
 }
 .multicolumn-card__image-wrapper img {
   border-radius: var(--rar-radius-sm);
@@ -716,7 +716,7 @@ a.link,
 .shopify-section + .shopify-section .section-padding,
 .shopify-section + .shopify-section .rich-text,
 .shopify-section + .shopify-section .multicolumn {
-  border-top: 1px solid rgba(31, 43, 51, 0.07);
+  border-top: 1px solid rgba(28, 40, 48, 0.07);
 }
 
 /* ==========================================================================
@@ -738,7 +738,7 @@ a.link,
 .collection-hero__description {
   font-size: 1.5rem;
   line-height: 1.6;
-  color: rgba(31, 43, 51, 0.7);
+  color: rgba(28, 40, 48, 0.7);
   max-width: 60ch;
 }
 
@@ -769,16 +769,16 @@ a.link,
 .rar-coll-seo__body {
   font-size: 1.5rem;
   line-height: 1.65;
-  color: rgba(31, 43, 51, 0.75);
+  color: rgba(28, 40, 48, 0.75);
 }
 
 /* FAQ accordion */
 .rar-coll-faq__heading { margin-bottom: 2.4rem; }
 .rar-coll-faq__list {
-  border-top: 1px solid rgba(31, 43, 51, 0.1);
+  border-top: 1px solid rgba(28, 40, 48, 0.1);
 }
 .rar-coll-faq__item {
-  border-bottom: 1px solid rgba(31, 43, 51, 0.1);
+  border-bottom: 1px solid rgba(28, 40, 48, 0.1);
 }
 .rar-coll-faq__question {
   display: flex;
@@ -812,5 +812,5 @@ a.link,
   padding: 0 0 1.6rem;
   font-size: 1.4rem;
   line-height: 1.65;
-  color: rgba(31, 43, 51, 0.75);
+  color: rgba(28, 40, 48, 0.75);
 }

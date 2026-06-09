@@ -31,8 +31,8 @@
         "enable_sorting": true,
         "filter_type": "sidebar",
         "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 56
+        "padding_top": 43,
+        "padding_bottom": 67
       }
     },
     "seo_faq": {
@@ -50,8 +50,8 @@
       "settings": {
         "color_scheme": "scheme-2",
         "faq_heading": "Frequently asked questions",
-        "padding_top": 56,
-        "padding_bottom": 56
+        "padding_top": 67,
+        "padding_bottom": 67
       }
     }
   },

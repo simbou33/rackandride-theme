@@ -13,7 +13,8 @@ Synchro GitHub → Shopify.
 5. **Nettoyage + passe SEO**
 
 ## Décisions de design (appliquées en Phase 0)
-- Palette « Chêne & Océan » : Lin `#FAF6EF`, Sable `#EFE7D9`, Chêne `#B07C4C`, Encre `#1F2B33`, Sauge `#7E8E72`, Terracotta `#C16E4F`
+- Palette « Chêne & Océan » : Blanc `#FFFFFF`, Blanc cassé `#F8F5F0`, Chêne `#B07C4C`, Encre `#1C2830`, Sauge `#7A8B6E`, Terracotta `#C16E4F` (badges promo uniquement)
+- Direction premium : beaucoup de blanc, espace négatif généreux, accents chêne rares et précieux
 - Polices self-hosted (RGPD) : **Fraunces** (titres) + **Work Sans** (corps) — pas de Google Fonts externe
 - Arrondis doux (boutons ~6px, cartes ~12px) ; **PRIX EN ENCRE `#1F2B33`**, chêne réservé aux boutons/liens/focus
 - Header en **« on scroll up »** (PAS « always ») ; panier = **cart drawer** ; largeur page **1400**
