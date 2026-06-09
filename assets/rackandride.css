@@ -303,12 +303,55 @@ a.link,
   color: #fff;
 }
 
-/* Méga-menu / dropdown : carte douce */
+/* Méga-menu / dropdown — carte douce + palette RAR */
 .header__submenu.list-menu__submenu,
 .mega-menu__content {
   border-radius: var(--rar-radius);
   box-shadow: 0 18px 40px -24px rgba(28, 40, 48, 0.45);
   border: 1px solid rgba(var(--color-foreground), 0.06);
+}
+
+/* Dropdown : fond blanc garanti, texte encre */
+.header__submenu.list-menu--disclosure {
+  background-color: #ffffff;
+  color: var(--rar-ink);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px -8px rgba(28, 40, 48, 0.18), 0 2px 8px -2px rgba(28, 40, 48, 0.08);
+  border: 1px solid rgba(28, 40, 48, 0.07);
+  padding: 0.5rem 0;
+}
+
+/* Liens du dropdown : encre → chêne au hover avec soulignement chêne */
+.header__submenu .header__menu-item {
+  color: var(--rar-ink);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+@media (hover: hover) {
+  .header__submenu .header__menu-item:hover {
+    color: var(--rar-oak);
+    text-decoration: underline;
+    text-decoration-color: var(--rar-oak);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+}
+
+/* Animation d'apparition douce (remplace animateMenuOpen de Dawn) */
+@keyframes rar-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+details[open] > .header__submenu.list-menu--disclosure {
+  animation: rar-dropdown-in 0.18s ease forwards;
 }
 
 /* --------------------------------------------------------------------------

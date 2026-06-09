@@ -331,6 +331,7 @@
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
+      "nav_label": "Main navigation",
       "cart_count": {
         "one": "{{ count }} item",
         "other": "{{ count }} items"

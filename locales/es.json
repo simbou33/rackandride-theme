@@ -332,6 +332,7 @@
     "header": {
       "announcement": "Anuncio",
       "menu": "Menú",
+      "nav_label": "Navegación principal",
       "cart_count": {
         "one": "{{ count }} artículo",
         "other": "{{ count }} artículos",

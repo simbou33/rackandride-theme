@@ -3,9 +3,31 @@
 
   Usage:
   {% render 'header-dropdown-menu' %}
+
+  ─────────────────────────────────────────────────────────────────────────────
+  CONFIGURATION DU MENU — Shopify Admin → Boutique en ligne → Navigation
+  ─────────────────────────────────────────────────────────────────────────────
+  Structure recommandée pour le menu principal (handle : main-menu) :
+
+  Niveau 1 (visible dans la barre) → Niveau 2 (dropdown au survol)
+  ─────────────────────────────────────────────────────────────────────────────
+  • Toutes les catégories          (URL : /collections/all)
+    └─ Supports Surf               → /collections/surfboard-wall-mount
+    └─ Supports Skateboard         → /collections/skateboard-wall-mount
+    └─ Supports Snowboard          → /collections/snowboard-wall-mount
+    └─ Supports Ski                → /collections/ski-wall-mount
+    └─ Racks Vélo                  → /collections/bike-rack
+    └─ Racks Wake & Kite           → /collections/wake-kite-rack
+    └─ Déco                        → /collections/home-deco
+  • Notre histoire                 (URL : /pages/our-story)
+  • Blog                           (URL : /blogs/news)
+  ─────────────────────────────────────────────────────────────────────────────
+  ⚠ Vérifier les handles de collection dans Shopify Admin → Produits →
+  Collections avant de publier (les handles indiqués ci-dessus sont ceux
+  utilisés dans index.json — adapter si votre boutique utilise d'autres handles).
 {% endcomment %}
 
-<nav class="header__inline-menu">
+<nav class="header__inline-menu" aria-label="{{ 'sections.header.nav_label' | t }}">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
       <li>
