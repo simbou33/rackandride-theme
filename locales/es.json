@@ -315,6 +315,10 @@
         }
       }
     },
+    "rar_collection_seo": {
+      "read_more": "Leer más",
+      "read_less": "Leer menos"
+    },
     "rar_trust_badges": {
       "shipping": "Envío gratis desde 100€",
       "payment": "Pago seguro",

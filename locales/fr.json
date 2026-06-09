@@ -315,6 +315,10 @@
         }
       }
     },
+    "rar_collection_seo": {
+      "read_more": "Lire la suite",
+      "read_less": "Réduire"
+    },
     "rar_trust_badges": {
       "shipping": "Livraison offerte dès 100€",
       "payment": "Paiement sécurisé",

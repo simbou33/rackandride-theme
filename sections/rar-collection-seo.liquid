@@ -25,7 +25,20 @@
           <h2 class="rar-coll-seo__heading">{{ block.settings.heading | escape }}</h2>
         {%- endif -%}
         {%- if block.settings.content != blank -%}
-          <div class="rar-coll-seo__body rte">{{ block.settings.content }}</div>
+          <div class="rar-coll-seo__body rte rar-coll-seo__body--collapsible"
+               id="coll-seo-body-{{ block.id }}">
+            {{ block.settings.content }}
+          </div>
+          <button
+            class="rar-coll-seo__toggle"
+            aria-expanded="false"
+            aria-controls="coll-seo-body-{{ block.id }}"
+            data-expand="{{ 'sections.rar_collection_seo.read_more' | t | escape }}"
+            data-collapse="{{ 'sections.rar_collection_seo.read_less' | t | escape }}"
+          >
+            <span class="rar-coll-seo__toggle-text">{{ 'sections.rar_collection_seo.read_more' | t }}</span>
+            <span class="rar-coll-seo__toggle-caret" aria-hidden="true">▾</span>
+          </button>
         {%- endif -%}
       </div>
     {%- endfor -%}
@@ -92,6 +105,50 @@
   }
   </script>
 {%- endif -%}
+
+<script>
+(function () {
+  function initCollapsible(body) {
+    var toggle = document.querySelector('[aria-controls="' + body.id + '"]');
+    if (!toggle) return;
+
+    var lh = parseFloat(getComputedStyle(body).lineHeight);
+    var collapsed = Math.ceil(lh * 2 + 6);
+    body.style.maxHeight = collapsed + 'px';
+
+    if (body.scrollHeight <= collapsed + lh) {
+      body.style.maxHeight = 'none';
+      toggle.hidden = true;
+      return;
+    }
+
+    toggle.addEventListener('click', function () {
+      var open = this.getAttribute('aria-expanded') === 'true';
+      if (!open) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        this.setAttribute('aria-expanded', 'true');
+        this.querySelector('.rar-coll-seo__toggle-text').textContent = this.dataset.collapse;
+        this.querySelector('.rar-coll-seo__toggle-caret').textContent = '▴';
+      } else {
+        body.style.maxHeight = collapsed + 'px';
+        this.setAttribute('aria-expanded', 'false');
+        this.querySelector('.rar-coll-seo__toggle-text').textContent = this.dataset.expand;
+        this.querySelector('.rar-coll-seo__toggle-caret').textContent = '▾';
+      }
+    });
+  }
+
+  function init() {
+    document.querySelectorAll('.rar-coll-seo__body--collapsible').forEach(initCollapsible);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 
 {% schema %}
 {

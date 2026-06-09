@@ -306,6 +306,10 @@
         }
       }
     },
+    "rar_collection_seo": {
+      "read_more": "Read more",
+      "read_less": "Read less"
+    },
     "rar_trust_badges": {
       "shipping": "Free shipping over €100",
       "payment": "Secure payment",
