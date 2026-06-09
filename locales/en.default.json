@@ -121,6 +121,15 @@
     "collection_title": "Your collection's name"
   },
   "products": {
+    "filter_tags": {
+      "surfboard-wall-mounts": "Surfboard Wall Mounts",
+      "skateboard-wall-mounts": "Skateboard Wall Mounts",
+      "snowboard-wall-mounts": "Snowboard Wall Mounts",
+      "skis-wall-mounts": "Skis Wall Mounts",
+      "bike-racks": "Bike Racks",
+      "wake-kite-racks": "Wake & Kite Racks",
+      "home-deco": "Home Deco"
+    },
     "product": {
       "add_to_cart": "Add to cart",
       "choose_options": "Choose options",

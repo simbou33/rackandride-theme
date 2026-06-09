@@ -74,10 +74,21 @@
                 </div>
                 {%- for filter in results.filters -%}
                   {%- for value in filter.active_values -%}
+                    {%- liquid
+                      assign active_display_label = value.label
+                      if filter.param_name == 'filter.p.tag'
+                        assign tag_handle = value.value | handleize
+                        assign t_key = 'products.filter_tags.' | append: tag_handle
+                        assign translated = t_key | t
+                        if translated != tag_handle
+                          assign active_display_label = translated
+                        endif
+                      endif
+                    -%}
                     <facet-remove>
                       <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
                         <span class="active-facets__button-inner button button--tertiary">
-                          {{ filter.label | escape }}: {{ value.label | escape }}
+                          {{ filter.label | escape }}: {{ active_display_label | escape }}
                           <span class="svg-wrapper">
                             {{- 'icon-close-small.svg' | inline_asset_content -}}
                           </span>
@@ -199,6 +210,15 @@
                               if value.count == 0 and value.active == false
                                 assign is_disabled = true
                               endif
+                              assign display_label = value.label
+                              if filter.param_name == 'filter.p.tag'
+                                assign tag_handle = value.value | handleize
+                                assign t_key = 'products.filter_tags.' | append: tag_handle
+                                assign translated = t_key | t
+                                if translated != tag_handle
+                                  assign display_label = translated
+                                endif
+                              endif
                             %}
                             {%- capture label_class -%}
                             facets__label facet-checkbox{% if is_disabled %} disabled{% endif %}{% if value.active %} active{% endif %}
@@ -206,10 +226,10 @@
 
                             {%- capture text_value -%}
                               <span class="facet-checkbox__text" aria-hidden="true">
-                                <span class="facet-checkbox__text-label">{{- value.label | escape }}</span> ({{- value.count -}})
+                                <span class="facet-checkbox__text-label">{{- display_label | escape }}</span> ({{- value.count -}})
                               </span>
                               <span class="visually-hidden">
-                                {{- value.label | escape }} (
+                                {{- display_label | escape }} (
                                 {%- if value.count == 1 -%}
                                   {{- 'products.facets.product_count_simple.one' | t: count: value.count -}}
                                 {%- else -%}
@@ -340,10 +360,21 @@
             <div class="active-facets active-facets-desktop">
               {%- for filter in results.filters -%}
                 {%- for value in filter.active_values -%}
+                  {%- liquid
+                    assign active_display_label = value.label
+                    if filter.param_name == 'filter.p.tag'
+                      assign tag_handle = value.value | handleize
+                      assign t_key = 'products.filter_tags.' | append: tag_handle
+                      assign translated = t_key | t
+                      if translated != tag_handle
+                        assign active_display_label = translated
+                      endif
+                    endif
+                  -%}
                   <facet-remove>
                     <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
                       <span class="active-facets__button-inner button button--tertiary">
-                        {{ filter.label | escape }}: {{ value.label | escape }}
+                        {{ filter.label | escape }}: {{ active_display_label | escape }}
                         <span class="svg-wrapper">
                           {{- 'icon-close-small.svg' | inline_asset_content -}}
                         </span>
@@ -567,6 +598,15 @@
                                 if value.count == 0 and value.active == false
                                   assign is_disabled = true
                                 endif
+                                assign display_label = value.label
+                                if filter.param_name == 'filter.p.tag'
+                                  assign tag_handle = value.value | handleize
+                                  assign t_key = 'products.filter_tags.' | append: tag_handle
+                                  assign translated = t_key | t
+                                  if translated != tag_handle
+                                    assign display_label = translated
+                                  endif
+                                endif
                               %}
 
                               {%- capture label_class -%}
@@ -575,10 +615,10 @@
 
                               {%- capture text_value -%}
                                 <span class="facet-checkbox__text" aria-hidden="true">
-                                  <span class="facet-checkbox__text-label">{{- value.label | escape }}</span> ({{- value.count -}})
+                                  <span class="facet-checkbox__text-label">{{- display_label | escape }}</span> ({{- value.count -}})
                                 </span>
                                 <span class="visually-hidden">
-                                  {{- value.label | escape }} (
+                                  {{- display_label | escape }} (
                                   {%- if value.count == '1' -%}
                                     {{- 'products.facets.product_count_simple.one' | t: count: value.count -}}
                                   {%- else -%}
@@ -785,10 +825,21 @@
   <div class="active-facets active-facets-mobile medium-hide large-up-hide">
     {%- for filter in results.filters -%}
       {%- for value in filter.active_values -%}
+        {%- liquid
+          assign active_display_label = value.label
+          if filter.param_name == 'filter.p.tag'
+            assign tag_handle = value.value | handleize
+            assign t_key = 'products.filter_tags.' | append: tag_handle
+            assign translated = t_key | t
+            if translated != tag_handle
+              assign active_display_label = translated
+            endif
+          endif
+        -%}
         <facet-remove>
           <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
             <span class="active-facets__button-inner button button--tertiary">
-              {{ filter.label | escape }}: {{ value.label | escape }}
+              {{ filter.label | escape }}: {{ active_display_label | escape }}
               <span class="svg-wrapper">
                 {{- 'icon-close-small.svg' | inline_asset_content -}}
               </span>
@@ -894,10 +945,21 @@
         <div class="active-facets active-facets-desktop">
           {%- for filter in results.filters -%}
             {%- for value in filter.active_values -%}
+              {%- liquid
+                assign active_display_label = value.label
+                if filter.param_name == 'filter.p.tag'
+                  assign tag_handle = value.value | handleize
+                  assign t_key = 'products.filter_tags.' | append: tag_handle
+                  assign translated = t_key | t
+                  if translated != tag_handle
+                    assign active_display_label = translated
+                  endif
+                endif
+              -%}
               <facet-remove>
                 <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
                   <span class="active-facets__button-inner button button--tertiary">
-                    {{ filter.label | escape }}: {{ value.label | escape }}
+                    {{ filter.label | escape }}: {{ active_display_label | escape }}
                     <span class="svg-wrapper">
                       {{- 'icon-close-small.svg' | inline_asset_content -}}
                     </span>

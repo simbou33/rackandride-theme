@@ -122,6 +122,15 @@
     "collection_title": "Le nom de votre collection"
   },
   "products": {
+    "filter_tags": {
+      "surfboard-wall-mounts": "Supports Muraux Surf",
+      "skateboard-wall-mounts": "Supports Muraux Skateboard",
+      "snowboard-wall-mounts": "Supports Muraux Snowboard",
+      "skis-wall-mounts": "Supports Muraux Skis",
+      "bike-racks": "Racks Vélo",
+      "wake-kite-racks": "Racks Wake & Kite",
+      "home-deco": "Déco"
+    },
     "product": {
       "add_to_cart": "Ajouter au panier",
       "description": "Description",

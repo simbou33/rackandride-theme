@@ -36,6 +36,27 @@ Toute chaîne visible → clé de traduction dans `locales/en.default.json` + `f
   - Si vide → réglage de section `rar_dimensions_content` (richtext) → sinon clé `products.rar_accordions.dimensions_fallback`
   - À créer dans Shopify Admin > Settings > Custom data > Products
 
+## Tags produits — filtres SEO
+Les filtres de collection lisent les **tags des produits Shopify** via l'API Storefront Filtering.
+Le thème intercepte `value.label` dans `snippets/facets.liquid` pour les filtres `filter.p.tag`
+et fait un lookup dans `products.filter_tags.*` (locales storefront) via le handle du tag.
+
+**Tags à appliquer sur chaque produit dans Shopify Admin** (texte exact, sensible à la casse) :
+
+| Tag (EN — valeur stockée) | FR affiché | DE affiché | ES affiché |
+|---|---|---|---|
+| `Surfboard Wall Mounts` | Supports Muraux Surf | Surfboard-Wandhalterungen | Soportes de Pared para Surf |
+| `Skateboard Wall Mounts` | Supports Muraux Skateboard | Skateboard-Wandhalterungen | Soportes de Pared para Skateboard |
+| `Snowboard Wall Mounts` | Supports Muraux Snowboard | Snowboard-Wandhalterungen | Soportes de Pared para Snowboard |
+| `Skis Wall Mounts` | Supports Muraux Skis | Ski-Wandhalterungen | Soportes de Pared para Esquís |
+| `Bike Racks` | Racks Vélo | Fahrradständer | Soportes para Bicicleta |
+| `Wake & Kite Racks` | Racks Wake & Kite | Wake & Kite Ständer | Soportes para Wake & Kite |
+| `Home Deco` | Déco | Heimdekoration | Decoración |
+
+⚠ Ne jamais changer la casse/orthographe des tags EN : le handle (`handleize`) doit correspondre
+aux clés dans `locales/*.json` sous `products.filter_tags`. Ajouter un nouveau tag = ajouter
+la clé dans les 4 fichiers de locale **et** configurer le filtre dans Shopify Admin → Search & Discovery.
+
 ## Rappels Phase 1
 - Header **« on scroll up »**
 - Barre d'annonce = « Enjoy 10% off on orders over €100 — use code SPRING10 » via clé de traduction, dans les 4 langues

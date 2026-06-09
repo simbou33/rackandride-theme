@@ -121,6 +121,15 @@
     "collection_title": "Name deiner Kollektion"
   },
   "products": {
+    "filter_tags": {
+      "surfboard-wall-mounts": "Surfboard-Wandhalterungen",
+      "skateboard-wall-mounts": "Skateboard-Wandhalterungen",
+      "snowboard-wall-mounts": "Snowboard-Wandhalterungen",
+      "skis-wall-mounts": "Ski-Wandhalterungen",
+      "bike-racks": "Fahrradständer",
+      "wake-kite-racks": "Wake & Kite Ständer",
+      "home-deco": "Heimdekoration"
+    },
     "product": {
       "add_to_cart": "In den Warenkorb legen",
       "description": "Beschreibung",
