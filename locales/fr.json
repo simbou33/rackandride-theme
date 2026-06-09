@@ -60,7 +60,8 @@
       "logo_alt": "Rack And Ride"
     },
     "breadcrumbs": {
-      "home": "Accueil"
+      "home": "Accueil",
+      "label": "Fil d'Ariane"
     }
   },
   "newsletter": {

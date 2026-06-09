@@ -60,7 +60,8 @@
       "logo_alt": "Rack And Ride"
     },
     "breadcrumbs": {
-      "home": "Home"
+      "home": "Home",
+      "label": "Breadcrumb"
     }
   },
   "newsletter": {

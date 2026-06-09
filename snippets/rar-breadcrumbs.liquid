@@ -1,0 +1,48 @@
+{%- comment -%}
+  RAR breadcrumbs HTML — réutilisable (produit, collection, page).
+  Params :
+    collection {Collection} — collection courante (optionnel)
+    product    {Product}    — produit courant (optionnel)
+    title      {String}     — titre de la page courante si pas de product (optionnel)
+{%- endcomment -%}
+{%- liquid
+  assign _bc_pos = 2
+  if collection != blank
+    assign _bc_col_pos = 2
+    assign _bc_pos = 3
+  endif
+-%}
+<nav class="rar-breadcrumbs" aria-label="{{ 'general.breadcrumbs.label' | t }}">
+  <ol class="rar-breadcrumbs__list list-unstyled">
+    <li class="rar-breadcrumbs__item">
+      <a class="rar-breadcrumbs__link" href="{{ routes.root_url }}">
+        {{- 'general.breadcrumbs.home' | t -}}
+      </a>
+    </li>
+    {%- if collection != blank -%}
+      <li class="rar-breadcrumbs__sep" aria-hidden="true">
+        <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+      </li>
+      <li class="rar-breadcrumbs__item">
+        <a class="rar-breadcrumbs__link" href="{{ collection.url }}">
+          {{- collection.title | escape -}}
+        </a>
+      </li>
+    {%- endif -%}
+    {%- if product != blank -%}
+      <li class="rar-breadcrumbs__sep" aria-hidden="true">
+        <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+      </li>
+      <li class="rar-breadcrumbs__item rar-breadcrumbs__item--current" aria-current="page">
+        {{- product.title | escape -}}
+      </li>
+    {%- elsif title != blank -%}
+      <li class="rar-breadcrumbs__sep" aria-hidden="true">
+        <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+      </li>
+      <li class="rar-breadcrumbs__item rar-breadcrumbs__item--current" aria-current="page">
+        {{- title | escape -}}
+      </li>
+    {%- endif -%}
+  </ol>
+</nav>

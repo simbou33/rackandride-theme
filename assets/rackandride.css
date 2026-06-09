@@ -483,3 +483,114 @@ a.link,
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   BREADCRUMBS — Phase 2
+   ========================================================================== */
+.rar-breadcrumbs {
+  padding: 1.2rem 0 0.4rem;
+}
+.rar-breadcrumbs__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  color: rgba(31, 43, 51, 0.55);
+}
+.rar-breadcrumbs__link {
+  color: rgba(31, 43, 51, 0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.rar-breadcrumbs__link:hover {
+  color: var(--rar-oak);
+}
+.rar-breadcrumbs__sep .svg-wrapper {
+  display: inline-flex;
+  width: 0.8rem;
+  height: 0.8rem;
+  opacity: 0.4;
+  transform: rotate(-90deg);
+}
+.rar-breadcrumbs__item--current {
+  color: var(--rar-ink);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 24rem;
+}
+
+/* ==========================================================================
+   PAGE PRODUIT — accordéons + styles de marque — Phase 2
+   ========================================================================== */
+
+/* Titre produit */
+.product__title h1,
+.product__title .h1 {
+  font-family: var(--font-heading-family);
+  font-weight: 700;
+  color: var(--rar-ink);
+  line-height: 1.15;
+}
+
+/* Prix en Encre (CLAUDE.md : prix toujours en --rar-ink) */
+.price .price-item,
+.price__regular .price-item,
+.price__sale .price-item--sale {
+  color: var(--rar-ink);
+}
+.price__sale .price-item--regular {
+  color: rgba(31, 43, 51, 0.4);
+}
+
+/* Accordéons produit (collapsible_tab) */
+.product__accordion .accordion summary {
+  padding: 1.4rem 0;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(31, 43, 51, 0.1);
+  list-style: none;
+}
+.product__accordion .accordion summary::-webkit-details-marker { display: none; }
+.product__accordion .accordion summary .accordion__title {
+  color: var(--rar-ink);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  transition: color 0.2s;
+}
+.product__accordion .accordion details[open] summary .accordion__title {
+  color: var(--rar-oak);
+}
+.product__accordion .accordion summary .svg-wrapper {
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.product__accordion .accordion details[open] summary .svg-wrapper {
+  transform: rotate(180deg);
+}
+.product__accordion .accordion__content {
+  padding: 1.2rem 0 1.6rem;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: rgba(31, 43, 51, 0.75);
+  border-bottom: 1px solid rgba(31, 43, 51, 0.08);
+}
+
+/* Variant picker — swatch actif en chêne */
+.swatch-input__input:checked + .swatch-input__tooltip,
+.swatch-input__input:checked ~ .swatch__value {
+  border-color: var(--rar-oak);
+  outline-color: var(--rar-oak);
+}
+.product-form__input .form__label {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--rar-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}

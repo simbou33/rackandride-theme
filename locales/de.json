@@ -60,7 +60,8 @@
       "logo_alt": "Rack And Ride"
     },
     "breadcrumbs": {
-      "home": "Startseite"
+      "home": "Startseite",
+      "label": "Brotkrümel-Navigation"
     }
   },
   "newsletter": {
